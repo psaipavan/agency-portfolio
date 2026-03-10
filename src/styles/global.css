@@ -124,7 +124,7 @@ img {
 
 /* ── SECTION BASE ── */
 .sec {
-  padding: 140px 80px;
+  padding: clamp(60px, 8vw, 140px) clamp(20px, 5vw, 80px);
   max-width: 1600px;
   margin: 0 auto;
   position: relative;
@@ -132,7 +132,7 @@ img {
 }
 
 .sec-tag {
-  font-size: 14px;
+  font-size: clamp(12px, 2vw, 14px);
   letter-spacing: 3px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.45);
@@ -141,7 +141,7 @@ img {
 
 .sec-h2 {
   font-family: 'Bebas Neue', cursive;
-  font-size: clamp(52px, 6vw, 88px);
+  font-size: clamp(32px, 6vw, 88px);
   font-weight: 400;
   letter-spacing: 2px;
   line-height: 1.0;
@@ -149,7 +149,7 @@ img {
 }
 
 .sec-sub {
-  font-size: 20px;
+  font-size: clamp(16px, 3vw, 20px);
   color: var(--muted);
   line-height: 1.8;
   max-width: 680px;
@@ -158,11 +158,11 @@ img {
 
 /* ── BUTTONS ── */
 .btn-solid {
-  padding: 15px 34px;
+  padding: clamp(12px, 2vw, 15px) clamp(24px, 4vw, 34px);
   border-radius: 100px;
   background: rgba(255, 255, 255, 0.9);
   color: #080818;
-  font-size: 14px;
+  font-size: clamp(13px, 2vw, 14px);
   font-weight: 600;
   text-decoration: none;
   display: inline-flex;
@@ -181,12 +181,12 @@ img {
 }
 
 .btn-glass {
-  padding: 14px 30px;
+  padding: clamp(12px, 2vw, 14px) clamp(24px, 4vw, 30px);
   border-radius: 100px;
   background: var(--glass);
   border: 1px solid var(--border);
   color: var(--white);
-  font-size: 14px;
+  font-size: clamp(13px, 2vw, 14px);
   font-weight: 400;
   text-decoration: none;
   backdrop-filter: blur(10px);
@@ -204,7 +204,7 @@ img {
 .divider {
   height: 1px;
   background: var(--border);
-  margin: 0 80px;
+  margin: 0 clamp(16px, 4vw, 80px);
 }
 
 /* ── FADE-IN ── */
@@ -325,31 +325,31 @@ img {
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 80px;
+  gap: clamp(30px, 6vw, 80px);
 }
 
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: clamp(16px, 3vw, 20px);
 }
 
 .grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+  gap: clamp(16px, 2vw, 20px);
 }
 
 .grid-12 {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 20px;
+  gap: clamp(16px, 2vw, 20px);
 }
 
 .grid-footer {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 72px;
+  gap: clamp(30px, 5vw, 72px);
 }
 
 /* Nav Mobile Menu */
@@ -369,48 +369,21 @@ img {
   cursor: pointer;
 }
 
-/* Large Tablets (max-width: 1024px) */
-@media (max-width: 1024px) {
-  .sec {
-    padding: 100px 40px;
-  }
 
-  .grid-3,
-  .grid-4 {
-    gap: 16px;
-  }
 
-  .grid-2 {
-    gap: 40px;
-  }
-
-  .grid-footer {
-    gap: 40px;
-  }
-
-  .cta-band {
-    padding: 80px 40px;
-    margin: 0 40px 100px;
-  }
-
-  footer {
-    padding: 60px 40px 32px;
-  }
-}
-
-/* Tablets (max-width: 900px) */
+/* Medium Tablets (max-width: 900px) */
 @media(max-width: 900px) {
   .sec {
-    padding: 80px 24px;
+    padding: clamp(50px, 6vw, 80px) clamp(20px, 4vw, 40px);
   }
 
   .divider {
-    margin: 0 24px;
+    margin: 0 clamp(20px, 4vw, 40px);
   }
 
   /* Nav */
   nav.nexus-nav {
-    padding: 14px 24px !important;
+    padding: clamp(12px, 3vw, 20px) clamp(20px, 4vw, 40px) !important;
   }
 
   .nav-links {
@@ -428,12 +401,12 @@ img {
 
   /* Hero */
   .hero-wrapper {
-    padding: 120px 24px 60px !important;
+    padding: clamp(80px, 10vw, 120px) clamp(20px, 4vw, 40px) clamp(40px, 6vw, 60px) !important;
   }
 
   .grid-2.hero-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
   }
 
   .hero-visual-col {
@@ -447,7 +420,7 @@ img {
 
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px 0;
+    gap: 30px;
   }
 
   .process-line {
@@ -456,13 +429,13 @@ img {
 
   .grid-footer {
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 30px;
   }
 
   /* CTA Band */
   .cta-band {
-    margin: 0 24px 80px !important;
-    padding: 60px 28px !important;
+    margin: 0 clamp(20px, 4vw, 40px) clamp(60px, 8vw, 100px) !important;
+    padding: clamp(40px, 6vw, 80px) clamp(24px, 5vw, 50px) !important;
   }
 
   /* Work Grid */
@@ -474,11 +447,23 @@ img {
 /* Mobile Devices (max-width: 600px) */
 @media(max-width: 600px) {
   .sec {
-    padding: 60px 20px;
+    padding: clamp(40px, 6vw, 60px) clamp(16px, 3vw, 20px);
   }
 
   .divider {
-    margin: 0 20px;
+    margin: 0 clamp(16px, 3vw, 20px);
+  }
+
+  .sec-h2 {
+    font-size: clamp(24px, 5vw, 40px);
+  }
+
+  .sec-sub {
+    font-size: clamp(14px, 2.5vw, 18px);
+  }
+
+  .sec-tag {
+    font-size: clamp(10px, 1.5vw, 12px);
   }
 
   .hero-stats {
@@ -497,21 +482,23 @@ img {
   .hero-actions a {
     text-align: center;
     justify-content: center;
+    width: 100%;
   }
 
   /* Collapse grids to 1 column */
   .grid-3 {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .grid-4 {
     grid-template-columns: 1fr;
-    gap: 40px 0;
+    gap: 20px;
   }
 
   .grid-footer {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 24px;
   }
 
   .grid-12>div {
@@ -532,5 +519,16 @@ img {
 
   .foot-bottom .socials {
     justify-content: center;
+  }
+
+  .badge-pill {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .btn-solid,
+  .btn-glass {
+    padding: 12px 24px;
+    font-size: 13px;
   }
 }
