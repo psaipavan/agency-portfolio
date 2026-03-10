@@ -3,7 +3,7 @@ function Footer() {
         <>
             {/* CTA Band */}
             <div id="contact" className="cta-band" style={{
-                margin: '0 80px 140px', borderRadius: 32, padding: '120px 100px',
+                margin: 'clamp(80px, 12vw, 140px) clamp(20px, 5vw, 80px)', borderRadius: 32, padding: 'clamp(80px, 12vw, 120px) clamp(40px, 8vw, 100px)',
                 background: 'var(--glass)', border: '1px solid var(--border)',
                 backdropFilter: 'blur(30px) saturate(160%)',
                 textAlign: 'center', position: 'relative', overflow: 'hidden', zIndex: 1,
@@ -16,13 +16,13 @@ function Footer() {
                 }} />
                 <h2 style={{
                     fontFamily: "'Bebas Neue', cursive",
-                    fontSize: 'clamp(64px, 12vw, 120px)', fontWeight: 400,
+                    fontSize: 'clamp(48px, 10vw, 96px)', fontWeight: 400,
                     letterSpacing: 2, marginBottom: 32, position: 'relative',
                 }}>
                     Ready to Build<br />
                     <em style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic', letterSpacing: 1, fontSize: '0.88em' }}>Something</em> Great?
                 </h2>
-                <p style={{ fontSize: 22, color: 'var(--muted)', marginBottom: 56, fontWeight: 300, position: 'relative' }}>
+                <p style={{ fontSize: 'clamp(16px, 2vw, 20px)', color: 'var(--muted)', marginBottom: 56, fontWeight: 300, position: 'relative' }}>
                     Tell us about your project. We respond within 24 hours.
                 </p>
                 <div style={{ display: 'flex', gap: 24, justifyContent: 'center', flexWrap: 'wrap', position: 'relative' }}>
@@ -33,26 +33,26 @@ function Footer() {
 
             {/* Footer */}
             <footer style={{
-                borderTop: '1px solid var(--border)', padding: '100px 80px 60px',
+                borderTop: '1px solid var(--border)', padding: 'clamp(80px, 12vw, 100px) clamp(20px, 5vw, 80px) 60px',
                 maxWidth: 1600, margin: '0 auto', position: 'relative', zIndex: 1,
             }}>
-                <div className="grid-footer" style={{ marginBottom: 80 }}>
+                <div className="grid-footer" style={{ marginBottom: 'clamp(60px, 10vw, 80px)' }}>
                     {/* Brand */}
                     <div>
-                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 48, fontWeight: 400, letterSpacing: 4, marginBottom: 24 }}>
+                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 'clamp(32px, 5vw, 48px)', fontWeight: 400, letterSpacing: 4, marginBottom: 24 }}>
                             NEX<span style={{ color: 'var(--muted)' }}>US</span>
                         </div>
-                        <p style={{ fontSize: 18, color: 'var(--muted)', lineHeight: 1.8, maxWidth: 420 }}>
+                        <p style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'var(--muted)', lineHeight: 1.8, maxWidth: 420 }}>
                             A digital agency building websites that drive real business results. Based in Hyderabad, working globally.
                         </p>
                     </div>
 
                     {/* Services */}
                     <div>
-                        <h4 style={{ fontSize: 16, letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 28 }}>Services</h4>
+                        <h4 style={{ fontSize: 'clamp(12px, 2vw, 16px)', letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 28 }}>Services</h4>
                         <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 18 }}>
                             {['Web Design', 'Development', 'E-Commerce', 'Landing Pages'].map(s => (
-                                <li key={s}><a href="#services" style={{ fontSize: 18, color: 'rgba(255,255,255,0.6)', transition: 'color .2s' }}
+                                <li key={s}><a href="#services" style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'rgba(255,255,255,0.6)', transition: 'color .2s' }}
                                     onMouseEnter={e => e.target.style.color = 'var(--white)'}
                                     onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.6)'}
                                 >{s}</a></li>
@@ -62,10 +62,10 @@ function Footer() {
 
                     {/* Company */}
                     <div>
-                        <h4 style={{ fontSize: 16, letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 28 }}>Company</h4>
+                        <h4 style={{ fontSize: 'clamp(12px, 2vw, 16px)', letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 28 }}>Company</h4>
                         <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 18 }}>
                             {['About', 'Work', 'Process', 'Careers'].map(s => (
-                                <li key={s}><a href="#" style={{ fontSize: 18, color: 'rgba(255,255,255,0.6)', transition: 'color .2s' }}
+                                <li key={s}><a href="#" style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'rgba(255,255,255,0.6)', transition: 'color .2s' }}
                                     onMouseEnter={e => e.target.style.color = 'var(--white)'}
                                     onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.6)'}
                                 >{s}</a></li>
@@ -75,10 +75,10 @@ function Footer() {
 
                     {/* Contact */}
                     <div>
-                        <h4 style={{ fontSize: 16, letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 28 }}>Contact</h4>
+                        <h4 style={{ fontSize: 'clamp(12px, 2vw, 16px)', letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 28 }}>Contact</h4>
                         <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 18 }}>
                             {['hello@nexus.agency', '+91 98765 43210', 'Hyderabad, India'].map(s => (
-                                <li key={s}><a href="mailto:hello@nexus.agency" style={{ fontSize: 18, color: 'rgba(255,255,255,0.6)', transition: 'color .2s' }}
+                                <li key={s}><a href="mailto:hello@nexus.agency" style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'rgba(255,255,255,0.6)', transition: 'color .2s' }}
                                     onMouseEnter={e => e.target.style.color = 'var(--white)'}
                                     onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.6)'}
                                 >{s}</a></li>

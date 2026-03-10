@@ -8,7 +8,7 @@ function Navbar() {
         <>
             <nav className="nexus-nav" style={{
                 position: 'fixed', top: 0, left: 0, right: 0, zIndex: 500,
-                padding: '36px 80px',
+                padding: 'clamp(20px, 3vw, 36px) clamp(20px, 5vw, 80px)',
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                 background: 'rgba(6,6,16,0.65)',
                 backdropFilter: 'blur(24px) saturate(160%)',
@@ -16,7 +16,7 @@ function Navbar() {
                 borderBottom: '1px solid var(--border)',
             }}>
                 <div style={{
-                    fontFamily: "'Bebas Neue', cursive", fontSize: 40, fontWeight: 400,
+                    fontFamily: "'Bebas Neue', cursive", fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 400,
                     letterSpacing: 4, color: 'var(--white)', zIndex: 501, position: 'relative'
                 }}>
                     NEX<span style={{ color: 'rgba(255,255,255,0.45)' }}>US</span>
@@ -27,7 +27,7 @@ function Navbar() {
                     {[['#services', 'Services'], ['#work', 'Work'], ['#process', 'Process'], ['#pricing', 'Pricing']].map(([href, label]) => (
                         <li key={href}>
                             <a href={href} style={{
-                                color: 'var(--muted)', textDecoration: 'none', fontSize: 18, fontWeight: 500,
+                                color: 'var(--muted)', textDecoration: 'none', fontSize: 'clamp(14px, 2vw, 18px)', fontWeight: 500,
                                 transition: 'color .2s',
                             }}
                                 onMouseEnter={e => e.target.style.color = 'var(--white)'}
@@ -39,9 +39,9 @@ function Navbar() {
 
                 {/* Desktop CTA */}
                 <a href="#contact" className="nav-desktop-cta" style={{
-                    padding: '16px 36px', borderRadius: 100,
+                    padding: 'clamp(12px, 2vw, 16px) clamp(24px, 4vw, 36px)', borderRadius: 100,
                     background: 'var(--glass-md)', border: '1px solid var(--border)',
-                    color: 'var(--white)', fontSize: 17, fontWeight: 600,
+                    color: 'var(--white)', fontSize: 'clamp(14px, 2vw, 17px)', fontWeight: 600,
                     textDecoration: 'none', backdropFilter: 'blur(10px)',
                     transition: 'background .2s, border-color .2s, transform .2s',
                 }}

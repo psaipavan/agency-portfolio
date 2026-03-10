@@ -28,7 +28,7 @@ function Hero() {
 
                     <h1 style={{
                         fontFamily: "'Bebas Neue', cursive",
-                        fontSize: 'clamp(80px, 14vw, 160px)',
+                        fontSize: 'clamp(40px, 10vw, 100px)',
                         fontWeight: 400, lineHeight: 0.92, letterSpacing: 2,
                         marginBottom: 40,
                         background: 'linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.6) 100%)',
@@ -41,7 +41,7 @@ function Hero() {
                         {' '}That<br />Convert.
                     </h1>
 
-                    <p style={{ fontSize: 22, lineHeight: 1.8, color: 'var(--muted)', maxWidth: 640, marginBottom: 56, fontWeight: 300 }}>
+                    <p style={{ fontSize: 'clamp(16px, 3vw, 18px)', lineHeight: 1.8, color: 'var(--muted)', maxWidth: 640, marginBottom: 56, fontWeight: 300 }}>
                         A digital agency obsessed with crafting high-performance websites. Precision design, clean code, results that matter.
                     </p>
 
@@ -50,11 +50,11 @@ function Hero() {
                         <a href="#process" className="btn-glass">How We Work</a>
                     </div>
 
-                    <div className="hero-stats" style={{ display: 'flex', gap: 80, marginTop: 72, paddingTop: 72, borderTop: '1px solid var(--border)' }}>
+                    <div className="hero-stats" style={{ display: 'flex', gap: 'clamp(40px, 8vw, 64px)', marginTop: 'clamp(32px, 8vw, 56px)', paddingTop: 'clamp(32px, 8vw, 56px)', borderTop: '1px solid var(--border)' }}>
                         {[['120+', 'Projects Delivered'], ['98%', 'Client Satisfaction'], ['4.9★', 'Average Rating']].map(([n, l]) => (
                             <div key={l}>
-                                <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 64, fontWeight: 400, letterSpacing: 2, color: 'var(--white)' }}>{n}</div>
-                                <div style={{ fontSize: 18, color: 'var(--muted)', marginTop: 8 }}>{l}</div>
+                                <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 'clamp(32px, 6vw, 48px)', fontWeight: 400, letterSpacing: 2, color: 'var(--white)' }}>{n}</div>
+                                <div style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: 'var(--muted)', marginTop: 8 }}>{l}</div>
                             </div>
                         ))}
                     </div>

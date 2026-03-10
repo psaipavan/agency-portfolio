@@ -124,7 +124,7 @@ img {
 
 /* ── SECTION BASE ── */
 .sec {
-  padding: 140px 80px;
+  padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 60px);
   max-width: 1600px;
   margin: 0 auto;
   position: relative;
@@ -141,7 +141,7 @@ img {
 
 .sec-h2 {
   font-family: 'Bebas Neue', cursive;
-  font-size: clamp(52px, 6vw, 88px);
+  font-size: clamp(32px, 6vw, 64px);
   font-weight: 400;
   letter-spacing: 2px;
   line-height: 1.0;
@@ -149,7 +149,7 @@ img {
 }
 
 .sec-sub {
-  font-size: 20px;
+  font-size: clamp(16px, 3vw, 18px);
   color: var(--muted);
   line-height: 1.8;
   max-width: 680px;
