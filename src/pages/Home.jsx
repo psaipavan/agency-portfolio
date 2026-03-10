@@ -81,24 +81,24 @@ function Home() {
                     <h2 className="sec-h2" style={{ marginBottom: 0 }}>Services Built<br /><em style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic', fontSize: '0.88em', letterSpacing: 1 }}>for Growth</em></h2>
                     <p className="sec-sub" style={{ maxWidth: 460, marginBottom: 0 }}>Every service we offer is engineered to deliver measurable results — not just beautiful pixels.</p>
                 </div>
-                <div className="grid-3" style={{ marginTop: 80 }}>
+                <div className="grid-3" style={{ marginTop: 100 }}>
                     {services.map(({ icon, title, desc }) => (
                         <div key={title} className="glass-card fi" style={{
-                            padding: '48px 40px', borderRadius: 24,
+                            padding: '64px 48px', borderRadius: 28,
                             transition: 'background .3s, border-color .3s, transform .3s', cursor: 'pointer',
                         }}
-                            onMouseEnter={e => { e.currentTarget.style.background = 'var(--glass-hv)'; e.currentTarget.style.borderColor = 'var(--border-hv)'; e.currentTarget.style.transform = 'translateY(-6px)'; }}
+                            onMouseEnter={e => { e.currentTarget.style.background = 'var(--glass-hv)'; e.currentTarget.style.borderColor = 'var(--border-hv)'; e.currentTarget.style.transform = 'translateY(-8px)'; }}
                             onMouseLeave={e => { e.currentTarget.style.background = 'var(--glass)'; e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.transform = 'translateY(0)'; }}
                         >
                             <div style={{
-                                width: 56, height: 56, borderRadius: 16,
+                                width: 72, height: 72, borderRadius: 20,
                                 background: 'rgba(255,255,255,0.06)', border: '1px solid var(--border)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                fontSize: 26, marginBottom: 28,
+                                fontSize: 32, marginBottom: 32,
                             }}>{icon}</div>
-                            <div style={{ fontFamily: "'Outfit',sans-serif", fontSize: 22, fontWeight: 600, marginBottom: 14, letterSpacing: 0.2 }}>{title}</div>
-                            <p style={{ fontSize: 15, color: 'var(--muted)', lineHeight: 1.8 }}>{desc}</p>
-                            <a href="#contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 28, fontSize: 14, color: 'rgba(255,255,255,0.4)', textDecoration: 'none', transition: 'color .2s, gap .2s' }}>Learn more →</a>
+                            <div style={{ fontFamily: "'Outfit',sans-serif", fontSize: 26, fontWeight: 600, marginBottom: 16, letterSpacing: 0.2 }}>{title}</div>
+                            <p style={{ fontSize: 18, color: 'var(--muted)', lineHeight: 1.8 }}>{desc}</p>
+                            <a href="#contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 32, fontSize: 16, color: 'rgba(255,255,255,0.4)', textDecoration: 'none', transition: 'color .2s, gap .2s' }}>Learn more →</a>
                         </div>
                     ))}
                 </div>
@@ -140,11 +140,11 @@ function Home() {
                             <div className="wi-overlay" style={{
                                 position: 'absolute', inset: 0,
                                 background: 'linear-gradient(to top, rgba(6,6,16,0.85) 0%, transparent 60%)',
-                                display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 32,
+                                display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 48,
                                 opacity: 0, transition: 'opacity .3s',
                             }}>
-                                <div style={{ fontSize: 12, letterSpacing: 2.5, textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: 8 }}>{tag}</div>
-                                <div style={{ fontFamily: "'Outfit',sans-serif", fontSize: 24, fontWeight: 600 }}>{name}</div>
+                                <div style={{ fontSize: 18, letterSpacing: 2.5, textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: 8 }}>{tag}</div>
+                                <div style={{ fontFamily: "'Outfit',sans-serif", fontSize: 32, fontWeight: 600 }}>{name}</div>
                             </div>
                         </div>
                     ))}
@@ -156,19 +156,19 @@ function Home() {
                 <div className="sec">
                     <div className="sec-tag">Our Process</div>
                     <h2 className="sec-h2">From Idea to<br />Launch in 4 Steps</h2>
-                    <div className="grid-4" style={{ marginTop: 80, position: 'relative' }}>
+                    <div className="grid-4" style={{ marginTop: 100, position: 'relative' }}>
                         <div className="process-line" style={{
-                            position: 'absolute', top: 32, left: '12%', right: '12%', height: 1,
+                            position: 'absolute', top: 40, left: '12%', right: '12%', height: 1,
                             background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.15), rgba(255,255,255,0.15), transparent)',
                         }} />
                         {steps.map(({ n, t, d }) => (
-                            <div key={n} className="fi" style={{ textAlign: 'center', padding: '0 24px' }}>
+                            <div key={n} className="fi" style={{ textAlign: 'center', padding: '0 32px' }}>
                                 <div style={{
-                                    width: 64, height: 64, borderRadius: '50%', margin: '0 auto 32px',
+                                    width: 80, height: 80, borderRadius: '50%', margin: '0 auto 40px',
                                     background: 'var(--glass)', border: '1px solid var(--border)',
                                     backdropFilter: 'blur(12px)',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    fontFamily: "'Bebas Neue',cursive", fontWeight: 400, fontSize: 24, letterSpacing: 2,
+                                    fontFamily: "'Bebas Neue',cursive", fontWeight: 400, fontSize: 32, letterSpacing: 2,
                                     position: 'relative',
                                 }}>
                                     {n}
@@ -178,8 +178,8 @@ function Home() {
                                         pointerEvents: 'none',
                                     }} />
                                 </div>
-                                <div style={{ fontFamily: "'Outfit',sans-serif", fontSize: 18, fontWeight: 600, marginBottom: 12, letterSpacing: 0.3 }}>{t}</div>
-                                <p style={{ fontSize: 15, color: 'var(--muted)', lineHeight: 1.8 }}>{d}</p>
+                                <div style={{ fontFamily: "'Outfit',sans-serif", fontSize: 24, fontWeight: 600, marginBottom: 16, letterSpacing: 0.3 }}>{t}</div>
+                                <p style={{ fontSize: 18, color: 'var(--muted)', lineHeight: 1.8 }}>{d}</p>
                             </div>
                         ))}
                     </div>
@@ -190,26 +190,26 @@ function Home() {
             <section className="sec">
                 <div className="sec-tag">Social Proof</div>
                 <h2 className="sec-h2">Clients Love<br />Working With Us</h2>
-                <div className="grid-3" style={{ marginTop: 80 }}>
+                <div className="grid-3" style={{ marginTop: 100 }}>
                     {testimonials.map(({ av, name, role, text }) => (
-                        <div key={name} className="glass-card fi" style={{ padding: 40, borderRadius: 24, position: 'relative', overflow: 'hidden' }}>
+                        <div key={name} className="glass-card fi" style={{ padding: 56, borderRadius: 28, position: 'relative', overflow: 'hidden' }}>
                             <div style={{
-                                position: 'absolute', top: 12, right: 24,
-                                fontSize: 100, lineHeight: 1, fontFamily: "'Bebas Neue',cursive",
+                                position: 'absolute', top: 16, right: 32,
+                                fontSize: 140, lineHeight: 1, fontFamily: "'Bebas Neue',cursive",
                                 color: 'rgba(255,255,255,0.03)', pointerEvents: 'none',
                             }}>"</div>
-                            <div style={{ fontSize: 15, letterSpacing: 4, color: 'rgba(255,255,255,0.6)', marginBottom: 24 }}>★ ★ ★ ★ ★</div>
-                            <p style={{ fontSize: 16, lineHeight: 1.8, color: 'rgba(255,255,255,0.7)', marginBottom: 32 }}>{text}</p>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                            <div style={{ fontSize: 20, letterSpacing: 4, color: 'rgba(255,255,255,0.6)', marginBottom: 32 }}>★ ★ ★ ★ ★</div>
+                            <p style={{ fontSize: 20, lineHeight: 1.8, color: 'rgba(255,255,255,0.7)', marginBottom: 40 }}>{text}</p>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
                                 <div style={{
-                                    width: 48, height: 48, borderRadius: '50%',
+                                    width: 64, height: 64, borderRadius: '50%',
                                     background: 'rgba(255,255,255,0.08)', border: '1px solid var(--border)',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    fontFamily: "'Bebas Neue',cursive", fontWeight: 700, fontSize: 15, color: 'var(--muted)',
+                                    fontFamily: "'Bebas Neue',cursive", fontWeight: 700, fontSize: 20, color: 'var(--muted)',
                                 }}>{av}</div>
                                 <div>
-                                    <div style={{ fontSize: 16, fontWeight: 600, letterSpacing: 0.2 }}>{name}</div>
-                                    <div style={{ fontSize: 14, color: 'var(--muted)' }}>{role}</div>
+                                    <div style={{ fontSize: 20, fontWeight: 600, letterSpacing: 0.2 }}>{name}</div>
+                                    <div style={{ fontSize: 16, color: 'var(--muted)' }}>{role}</div>
                                 </div>
                             </div>
                         </div>
@@ -223,10 +223,10 @@ function Home() {
             <section className="sec" id="pricing">
                 <div className="sec-tag">Investment</div>
                 <h2 className="sec-h2">Transparent Pricing,<br />Real Results</h2>
-                <div className="grid-3" style={{ marginTop: 80 }}>
+                <div className="grid-3" style={{ marginTop: 100 }}>
                     {plans.map(({ tier, price, sub, featured, badge, features, cta }) => (
                         <div key={tier} className="glass-card fi" style={{
-                            padding: 48, borderRadius: 24, position: 'relative', overflow: 'hidden',
+                            padding: 64, borderRadius: 32, position: 'relative', overflow: 'hidden',
                             transition: 'transform .3s',
                             display: 'flex', flexDirection: 'column',
                             ...(featured ? {
@@ -235,33 +235,33 @@ function Home() {
                                 boxShadow: '0 0 0 1px rgba(255,255,255,0.1), 0 40px 80px rgba(0,0,0,0.3)',
                             } : {}),
                         }}
-                            onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-6px)'}
+                            onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-8px)'}
                             onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
                         >
                             {badge && (
                                 <div style={{
-                                    position: 'absolute', top: 24, right: 24,
-                                    padding: '6px 16px', borderRadius: 100,
+                                    position: 'absolute', top: 32, right: 32,
+                                    padding: '8px 20px', borderRadius: 100,
                                     background: 'rgba(255,255,255,0.1)', border: '1px solid var(--border)',
-                                    fontSize: 11, letterSpacing: 1, color: 'var(--muted)',
+                                    fontSize: 14, letterSpacing: 1.5, color: 'var(--muted)',
                                 }}>{badge}</div>
                             )}
-                            <div style={{ fontSize: 13, letterSpacing: 2, textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 16 }}>{tier}</div>
-                            <div style={{ fontFamily: "'Bebas Neue',cursive", fontSize: 64, fontWeight: 400, letterSpacing: 3, lineHeight: 1, marginBottom: 8 }}>
-                                {price.startsWith('$') ? <><sup style={{ fontSize: 28, fontWeight: 600, opacity: 0.6 }}>$</sup>{price.slice(1)}</> : price}
+                            <div style={{ fontSize: 16, letterSpacing: 2.5, textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 20 }}>{tier}</div>
+                            <div style={{ fontFamily: "'Bebas Neue',cursive", fontSize: 80, fontWeight: 400, letterSpacing: 3, lineHeight: 1, marginBottom: 12 }}>
+                                {price.startsWith('$') ? <><sup style={{ fontSize: 36, fontWeight: 600, opacity: 0.6 }}>$</sup>{price.slice(1)}</> : price}
                             </div>
-                            <div style={{ fontSize: 14, color: 'var(--muted)', marginBottom: 36 }}>{sub}</div>
-                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 40, flexGrow: 1 }}>
+                            <div style={{ fontSize: 18, color: 'var(--muted)', marginBottom: 48 }}>{sub}</div>
+                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 20, marginBottom: 48, flexGrow: 1 }}>
                                 {features.map(f => (
-                                    <li key={f} style={{ fontSize: 15, color: 'rgba(255,255,255,0.7)', display: 'flex', alignItems: 'center', gap: 12 }}>
-                                        <span style={{ fontWeight: 700, fontSize: 13, color: 'rgba(255,255,255,0.5)' }}>✓</span>{f}
+                                    <li key={f} style={{ fontSize: 18, color: 'rgba(255,255,255,0.7)', display: 'flex', alignItems: 'center', gap: 16 }}>
+                                        <span style={{ fontWeight: 700, fontSize: 16, color: 'rgba(255,255,255,0.5)' }}>✓</span>{f}
                                     </li>
                                 ))}
                             </ul>
                             <a href="#contact" style={{
-                                width: '100%', padding: 18, borderRadius: 100, cursor: 'pointer',
+                                width: '100%', padding: 22, borderRadius: 100, cursor: 'pointer',
                                 display: 'block', textAlign: 'center', fontFamily: "'Outfit',sans-serif",
-                                fontSize: 16, textDecoration: 'none', transition: 'background .2s, border-color .2s',
+                                fontSize: 18, textDecoration: 'none', transition: 'background .2s, border-color .2s',
                                 ...(featured ? {
                                     background: 'rgba(255,255,255,0.95)', color: '#080818', border: 'none', fontWeight: 600,
                                 } : {

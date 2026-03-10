@@ -16,16 +16,16 @@ function Footer() {
                 }} />
                 <h2 style={{
                     fontFamily: "'Bebas Neue', cursive",
-                    fontSize: 'clamp(56px, 10vw, 100px)', fontWeight: 400,
-                    letterSpacing: 2, marginBottom: 24, position: 'relative',
+                    fontSize: 'clamp(64px, 12vw, 120px)', fontWeight: 400,
+                    letterSpacing: 2, marginBottom: 32, position: 'relative',
                 }}>
                     Ready to Build<br />
                     <em style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic', letterSpacing: 1, fontSize: '0.88em' }}>Something</em> Great?
                 </h2>
-                <p style={{ fontSize: 17, color: 'var(--muted)', marginBottom: 44, fontWeight: 300, position: 'relative' }}>
+                <p style={{ fontSize: 22, color: 'var(--muted)', marginBottom: 56, fontWeight: 300, position: 'relative' }}>
                     Tell us about your project. We respond within 24 hours.
                 </p>
-                <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap', position: 'relative' }}>
+                <div style={{ display: 'flex', gap: 24, justifyContent: 'center', flexWrap: 'wrap', position: 'relative' }}>
                     <a href="mailto:hello@nexus.agency" className="btn-solid">Start Your Project →</a>
                     <a href="#" className="btn-glass">Schedule a Call</a>
                 </div>
@@ -39,20 +39,20 @@ function Footer() {
                 <div className="grid-footer" style={{ marginBottom: 80 }}>
                     {/* Brand */}
                     <div>
-                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 32, fontWeight: 400, letterSpacing: 4, marginBottom: 18 }}>
+                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 48, fontWeight: 400, letterSpacing: 4, marginBottom: 24 }}>
                             NEX<span style={{ color: 'var(--muted)' }}>US</span>
                         </div>
-                        <p style={{ fontSize: 16, color: 'var(--muted)', lineHeight: 1.8, maxWidth: 360 }}>
+                        <p style={{ fontSize: 18, color: 'var(--muted)', lineHeight: 1.8, maxWidth: 420 }}>
                             A digital agency building websites that drive real business results. Based in Hyderabad, working globally.
                         </p>
                     </div>
 
                     {/* Services */}
                     <div>
-                        <h4 style={{ fontSize: 13, letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 24 }}>Services</h4>
-                        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 14 }}>
+                        <h4 style={{ fontSize: 16, letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 28 }}>Services</h4>
+                        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 18 }}>
                             {['Web Design', 'Development', 'E-Commerce', 'Landing Pages'].map(s => (
-                                <li key={s}><a href="#services" style={{ fontSize: 15, color: 'rgba(255,255,255,0.6)', transition: 'color .2s' }}
+                                <li key={s}><a href="#services" style={{ fontSize: 18, color: 'rgba(255,255,255,0.6)', transition: 'color .2s' }}
                                     onMouseEnter={e => e.target.style.color = 'var(--white)'}
                                     onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.6)'}
                                 >{s}</a></li>
@@ -62,10 +62,10 @@ function Footer() {
 
                     {/* Company */}
                     <div>
-                        <h4 style={{ fontSize: 13, letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 24 }}>Company</h4>
-                        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 14 }}>
+                        <h4 style={{ fontSize: 16, letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 28 }}>Company</h4>
+                        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 18 }}>
                             {['About', 'Work', 'Process', 'Careers'].map(s => (
-                                <li key={s}><a href="#" style={{ fontSize: 15, color: 'rgba(255,255,255,0.6)', transition: 'color .2s' }}
+                                <li key={s}><a href="#" style={{ fontSize: 18, color: 'rgba(255,255,255,0.6)', transition: 'color .2s' }}
                                     onMouseEnter={e => e.target.style.color = 'var(--white)'}
                                     onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.6)'}
                                 >{s}</a></li>
@@ -75,10 +75,10 @@ function Footer() {
 
                     {/* Contact */}
                     <div>
-                        <h4 style={{ fontSize: 13, letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 24 }}>Contact</h4>
-                        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 14 }}>
+                        <h4 style={{ fontSize: 16, letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 28 }}>Contact</h4>
+                        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 18 }}>
                             {['hello@nexus.agency', '+91 98765 43210', 'Hyderabad, India'].map(s => (
-                                <li key={s}><a href="mailto:hello@nexus.agency" style={{ fontSize: 15, color: 'rgba(255,255,255,0.6)', transition: 'color .2s' }}
+                                <li key={s}><a href="mailto:hello@nexus.agency" style={{ fontSize: 18, color: 'rgba(255,255,255,0.6)', transition: 'color .2s' }}
                                     onMouseEnter={e => e.target.style.color = 'var(--white)'}
                                     onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.6)'}
                                 >{s}</a></li>
@@ -90,17 +90,17 @@ function Footer() {
                 {/* Bottom bar */}
                 <div className="foot-bottom" style={{
                     display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                    borderTop: '1px solid var(--border)', paddingTop: 28,
-                    fontSize: 12, color: 'var(--muted)',
+                    borderTop: '1px solid var(--border)', paddingTop: 40,
+                    fontSize: 14, color: 'var(--muted)',
                 }}>
                     <span>© 2025 NEXUS Agency. All rights reserved.</span>
-                    <div className="socials" style={{ display: 'flex', gap: 10 }}>
+                    <div className="socials" style={{ display: 'flex', gap: 16 }}>
                         {['𝕏', 'in', 'ig', 'be'].map(s => (
                             <a key={s} href="#" style={{
-                                width: 34, height: 34, borderRadius: '50%',
+                                width: 44, height: 44, borderRadius: '50%',
                                 background: 'var(--glass)', border: '1px solid var(--border)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                fontSize: 12, color: 'var(--muted)', textDecoration: 'none',
+                                fontSize: 16, color: 'var(--muted)', textDecoration: 'none',
                                 transition: 'background .2s, color .2s, border-color .2s',
                             }}
                                 onMouseEnter={e => { e.currentTarget.style.background = 'var(--glass-hv)'; e.currentTarget.style.borderColor = 'var(--border-hv)'; e.currentTarget.style.color = 'var(--white)'; }}
