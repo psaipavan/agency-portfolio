@@ -77,28 +77,28 @@ function Home() {
             {/* ── SERVICES ── */}
             <section className="sec" id="services">
                 <div className="sec-tag">What We Do</div>
-                <div className="sec-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 32 }}>
+                <div className="sec-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 'clamp(16px, 3vw, 32px)' }}>
                     <h2 className="sec-h2" style={{ marginBottom: 0 }}>Services Built<br /><em style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic', fontSize: '0.88em', letterSpacing: 1 }}>for Growth</em></h2>
                     <p className="sec-sub" style={{ maxWidth: 460, marginBottom: 0 }}>Every service we offer is engineered to deliver measurable results — not just beautiful pixels.</p>
                 </div>
-                <div className="grid-3" style={{ marginTop: 'clamp(60px, 10vw, 100px)' }}>
+                <div className="grid-3" style={{ marginTop: 'clamp(50px, 8vw, 100px)' }}>
                     {services.map(({ icon, title, desc }) => (
                         <div key={title} className="glass-card fi" style={{
-                            padding: 'clamp(40px, 6vw, 64px) clamp(32px, 6vw, 48px)', borderRadius: 28,
+                            padding: 'clamp(32px, 6vw, 64px) clamp(24px, 5vw, 48px)', borderRadius: 28,
                             transition: 'background .3s, border-color .3s, transform .3s', cursor: 'pointer',
                         }}
                             onMouseEnter={e => { e.currentTarget.style.background = 'var(--glass-hv)'; e.currentTarget.style.borderColor = 'var(--border-hv)'; e.currentTarget.style.transform = 'translateY(-8px)'; }}
                             onMouseLeave={e => { e.currentTarget.style.background = 'var(--glass)'; e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.transform = 'translateY(0)'; }}
                         >
                             <div style={{
-                                width: 'clamp(56px, 8vw, 72px)', height: 'clamp(56px, 8vw, 72px)', borderRadius: 20,
+                                width: 'clamp(48px, 8vw, 72px)', height: 'clamp(48px, 8vw, 72px)', borderRadius: 20,
                                 background: 'rgba(255,255,255,0.06)', border: '1px solid var(--border)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                fontSize: 'clamp(24px, 4vw, 32px)', marginBottom: 32,
+                                fontSize: 'clamp(24px, 4vw, 32px)', marginBottom: 'clamp(16px, 3vw, 32px)',
                             }}>{icon}</div>
-                            <div style={{ fontFamily: "'Outfit',sans-serif", fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: 600, marginBottom: 16, letterSpacing: 0.2 }}>{title}</div>
+                            <div style={{ fontFamily: "'Outfit',sans-serif", fontSize: 'clamp(18px, 4vw, 26px)', fontWeight: 600, marginBottom: 'clamp(8px, 2vw, 16px)', letterSpacing: 0.2 }}>{title}</div>
                             <p style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'var(--muted)', lineHeight: 1.8 }}>{desc}</p>
-                            <a href="#contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 32, fontSize: 'clamp(13px, 2vw, 16px)', color: 'rgba(255,255,255,0.4)', textDecoration: 'none', transition: 'color .2s, gap .2s' }}>Learn more →</a>
+                            <a href="#contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 32, fontSize: 16, color: 'rgba(255,255,255,0.4)', textDecoration: 'none', transition: 'color .2s, gap .2s' }}>Learn more →</a>
                         </div>
                     ))}
                 </div>
@@ -108,7 +108,7 @@ function Home() {
 
             {/* ── WORK ── */}
             <section className="sec" id="work">
-                <div className="sec-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 'clamp(40px, 6vw, 56px)' }}>
+                <div className="sec-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 'clamp(32px, 6vw, 56px)', flexWrap: 'wrap', gap: 'clamp(16px, 3vw, 24px)' }}>
                     <div>
                         <div className="sec-tag">Selected Work</div>
                         <h2 className="sec-h2" style={{ marginBottom: 0 }}>Results That Speak</h2>
@@ -117,7 +117,7 @@ function Home() {
                 </div>
                 <div className="grid-12">
                     {work.map(({ tag, name, bg, span, ratio }) => (
-                        <div key={name} style={{ gridColumn: `span ${span}`, aspectRatio: ratio, borderRadius: 20, overflow: 'hidden', position: 'relative', cursor: 'pointer', minHeight: 200 }}
+                        <div key={name} style={{ gridColumn: `span ${span}`, aspectRatio: ratio, borderRadius: 'clamp(12px, 2vw, 20px)', overflow: 'hidden', position: 'relative', cursor: 'pointer', minHeight: 200 }}
                             onMouseEnter={e => {
                                 e.currentTarget.querySelector('.wi-thumb').style.transform = 'scale(1.04)'
                                 e.currentTarget.querySelector('.wi-overlay').style.opacity = '1'
@@ -140,7 +140,7 @@ function Home() {
                             <div className="wi-overlay" style={{
                                 position: 'absolute', inset: 0,
                                 background: 'linear-gradient(to top, rgba(6,6,16,0.85) 0%, transparent 60%)',
-                                display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'clamp(32px, 6vw, 48px)',
+                                display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'clamp(24px, 4vw, 48px)',
                                 opacity: 0, transition: 'opacity .3s',
                             }}>
                                 <div style={{ fontSize: 'clamp(12px, 2vw, 18px)', letterSpacing: 2.5, textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: 8 }}>{tag}</div>
@@ -156,19 +156,19 @@ function Home() {
                 <div className="sec">
                     <div className="sec-tag">Our Process</div>
                     <h2 className="sec-h2">From Idea to<br />Launch in 4 Steps</h2>
-                    <div className="grid-4" style={{ marginTop: 'clamp(60px, 10vw, 100px)', position: 'relative' }}>
+                    <div className="grid-4" style={{ marginTop: 'clamp(50px, 8vw, 100px)', position: 'relative' }}>
                         <div className="process-line" style={{
-                            position: 'absolute', top: 40, left: '12%', right: '12%', height: 1,
+                            position: 'absolute', top: 'clamp(30px, 5vw, 40px)', left: '12%', right: '12%', height: 1,
                             background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.15), rgba(255,255,255,0.15), transparent)',
                         }} />
                         {steps.map(({ n, t, d }) => (
                             <div key={n} className="fi" style={{ textAlign: 'center', padding: '0 clamp(16px, 3vw, 32px)' }}>
                                 <div style={{
-                                    width: 'clamp(60px, 8vw, 80px)', height: 'clamp(60px, 8vw, 80px)', borderRadius: '50%', margin: '0 auto 40px',
+                                    width: 'clamp(60px, 10vw, 80px)', height: 'clamp(60px, 10vw, 80px)', borderRadius: '50%', margin: '0 auto clamp(24px, 5vw, 40px)',
                                     background: 'var(--glass)', border: '1px solid var(--border)',
                                     backdropFilter: 'blur(12px)',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    fontFamily: "'Bebas Neue',cursive", fontWeight: 400, fontSize: 'clamp(24px, 3vw, 32px)', letterSpacing: 2,
+                                    fontFamily: "'Bebas Neue',cursive", fontWeight: 400, fontSize: 'clamp(24px, 4vw, 32px)', letterSpacing: 2,
                                     position: 'relative',
                                 }}>
                                     {n}
@@ -178,7 +178,7 @@ function Home() {
                                         pointerEvents: 'none',
                                     }} />
                                 </div>
-                                <div style={{ fontFamily: "'Outfit',sans-serif", fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: 600, marginBottom: 16, letterSpacing: 0.3 }}>{t}</div>
+                                <div style={{ fontFamily: "'Outfit',sans-serif", fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: 600, marginBottom: 'clamp(8px, 2vw, 16px)', letterSpacing: 0.3 }}>{t}</div>
                                 <p style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'var(--muted)', lineHeight: 1.8 }}>{d}</p>
                             </div>
                         ))}
@@ -190,26 +190,26 @@ function Home() {
             <section className="sec">
                 <div className="sec-tag">Social Proof</div>
                 <h2 className="sec-h2">Clients Love<br />Working With Us</h2>
-                <div className="grid-3" style={{ marginTop: 'clamp(60px, 10vw, 100px)' }}>
+                <div className="grid-3" style={{ marginTop: 'clamp(50px, 8vw, 100px)' }}>
                     {testimonials.map(({ av, name, role, text }) => (
-                        <div key={name} className="glass-card fi" style={{ padding: 'clamp(40px, 6vw, 56px)', borderRadius: 28, position: 'relative', overflow: 'hidden' }}>
+                        <div key={name} className="glass-card fi" style={{ padding: 'clamp(32px, 6vw, 56px)', borderRadius: 28, position: 'relative', overflow: 'hidden' }}>
                             <div style={{
-                                position: 'absolute', top: 16, right: 32,
-                                fontSize: 'clamp(100px, 15vw, 140px)', lineHeight: 1, fontFamily: "'Bebas Neue',cursive",
+                                position: 'absolute', top: 'clamp(8px, 2vw, 16px)', right: 'clamp(16px, 3vw, 32px)',
+                                fontSize: 'clamp(80px, 15vw, 140px)', lineHeight: 1, fontFamily: "'Bebas Neue',cursive",
                                 color: 'rgba(255,255,255,0.03)', pointerEvents: 'none',
                             }}>"</div>
-                            <div style={{ fontSize: 'clamp(14px, 2vw, 20px)', letterSpacing: 4, color: 'rgba(255,255,255,0.6)', marginBottom: 32 }}>★ ★ ★ ★ ★</div>
-                            <p style={{ fontSize: 'clamp(16px, 2.5vw, 20px)', lineHeight: 1.8, color: 'rgba(255,255,255,0.7)', marginBottom: 40 }}>{text}</p>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+                            <div style={{ fontSize: 'clamp(14px, 2vw, 20px)', letterSpacing: 4, color: 'rgba(255,255,255,0.6)', marginBottom: 'clamp(16px, 4vw, 32px)' }}>★ ★ ★ ★ ★</div>
+                            <p style={{ fontSize: 'clamp(14px, 2.5vw, 20px)', lineHeight: 1.8, color: 'rgba(255,255,255,0.7)', marginBottom: 'clamp(24px, 5vw, 40px)' }}>{text}</p>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(12px, 2vw, 20px)' }}>
                                 <div style={{
                                     width: 'clamp(48px, 8vw, 64px)', height: 'clamp(48px, 8vw, 64px)', borderRadius: '50%',
                                     background: 'rgba(255,255,255,0.08)', border: '1px solid var(--border)',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    fontFamily: "'Bebas Neue',cursive", fontWeight: 700, fontSize: 'clamp(16px, 2vw, 20px)', color: 'var(--muted)',
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                                    fontFamily: "'Bebas Neue',cursive", fontWeight: 700, fontSize: 'clamp(14px, 2vw, 20px)', color: 'var(--muted)',
                                 }}>{av}</div>
                                 <div>
-                                    <div style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, letterSpacing: 0.2 }}>{name}</div>
-                                    <div style={{ fontSize: 'clamp(13px, 1.8vw, 16px)', color: 'var(--muted)' }}>{role}</div>
+                                    <div style={{ fontSize: 'clamp(14px, 2.5vw, 20px)', fontWeight: 600, letterSpacing: 0.2 }}>{name}</div>
+                                    <div style={{ fontSize: 'clamp(13px, 2vw, 16px)', color: 'var(--muted)' }}>{role}</div>
                                 </div>
                             </div>
                         </div>
@@ -223,10 +223,10 @@ function Home() {
             <section className="sec" id="pricing">
                 <div className="sec-tag">Investment</div>
                 <h2 className="sec-h2">Transparent Pricing,<br />Real Results</h2>
-                <div className="grid-3" style={{ marginTop: 'clamp(60px, 10vw, 100px)' }}>
+                <div className="grid-3" style={{ marginTop: 'clamp(50px, 8vw, 100px)' }}>
                     {plans.map(({ tier, price, sub, featured, badge, features, cta }) => (
                         <div key={tier} className="glass-card fi" style={{
-                            padding: 'clamp(40px, 6vw, 64px)', borderRadius: 32, position: 'relative', overflow: 'hidden',
+                            padding: 'clamp(32px, 6vw, 64px)', borderRadius: 32, position: 'relative', overflow: 'hidden',
                             transition: 'transform .3s',
                             display: 'flex', flexDirection: 'column',
                             ...(featured ? {
@@ -240,26 +240,27 @@ function Home() {
                         >
                             {badge && (
                                 <div style={{
-                                    position: 'absolute', top: 32, right: 32,
-                                    padding: '8px 20px', borderRadius: 100,
+                                    position: 'absolute', top: 'clamp(16px, 3vw, 32px)', right: 'clamp(16px, 3vw, 32px)',
+                                    padding: 'clamp(6px, 1vw, 8px) clamp(12px, 2vw, 20px)', borderRadius: 100,
                                     background: 'rgba(255,255,255,0.1)', border: '1px solid var(--border)',
-                                    fontSize: 'clamp(12px, 1.8vw, 14px)', letterSpacing: 1.5, color: 'var(--muted)',
+                                    fontSize: 'clamp(11px, 1.5vw, 14px)', letterSpacing: 1.5, color: 'var(--muted)',
                                 }}>{badge}</div>
                             )}
-                            <div style={{ fontSize: 'clamp(12px, 1.8vw, 16px)', letterSpacing: 2.5, textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 20 }}>{tier}</div>
-                            <div style={{ fontFamily: "'Bebas Neue',cursive", fontSize: 'clamp(56px, 12vw, 80px)', fontWeight: 400, letterSpacing: 3, lineHeight: 1, marginBottom: 12 }}>
+                            <div style={{ fontSize: 'clamp(12px, 1.5vw, 16px)', letterSpacing: 2.5, textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 'clamp(12px, 2vw, 20px)' }}>{tier}</div>
+                            <div style={{ fontFamily: "'Bebas Neue',cursive", fontSize: 'clamp(48px, 10vw, 80px)', fontWeight: 400, letterSpacing: 3, lineHeight: 1, marginBottom: 'clamp(8px, 2vw, 12px)' }}>
                                 {price.startsWith('$') ? <><sup style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 600, opacity: 0.6 }}>$</sup>{price.slice(1)}</> : price}
                             </div>
-                            <div style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'var(--muted)', marginBottom: 48 }}>{sub}</div>
-                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 20, marginBottom: 48, flexGrow: 1 }}>
+                            <div style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'var(--muted)', marginBottom: 'clamp(30px, 6vw, 48px)' }}>{sub}</div>
+                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 'clamp(12px, 2vw, 20px)', marginBottom: 'clamp(30px, 6vw, 48px)', flexGrow: 1 }}>
                                 {features.map(f => (
-                                    <li key={f} style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'rgba(255,255,255,0.7)', display: 'flex', alignItems: 'center', gap: 16 }}>
-                                        <span style={{ fontWeight: 700, fontSize: 'clamp(12px, 2vw, 16px)', color: 'rgba(255,255,255,0.5)' }}>✓</span>{f}
+                                    <li key={f} style={{ fontSize: 'clamp(13px, 2vw, 18px)', color: 'rgba(255,255,255,0.7)', display: 'flex', alignItems: 'flex-start', gap: 'clamp(8px, 2vw, 16px)' }}>
+                                        <span style={{ fontWeight: 700, fontSize: 'clamp(13px, 1.5vw, 16px)', color: 'rgba(255,255,255,0.5)', flexShrink: 0, marginTop: 2 }}>✓</span>
+                                        <span>{f}</span>
                                     </li>
                                 ))}
                             </ul>
                             <a href="#contact" style={{
-                                width: '100%', padding: 'clamp(16px, 3vw, 22px)', borderRadius: 100, cursor: 'pointer',
+                                width: '100%', padding: 'clamp(16px, 2vw, 22px)', borderRadius: 100, cursor: 'pointer',
                                 display: 'block', textAlign: 'center', fontFamily: "'Outfit',sans-serif",
                                 fontSize: 'clamp(14px, 2vw, 18px)', textDecoration: 'none', transition: 'background .2s, border-color .2s',
                                 ...(featured ? {
