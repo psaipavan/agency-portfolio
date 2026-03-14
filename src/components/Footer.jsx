@@ -27,7 +27,7 @@ function Footer() {
                 </p>
                 <div style={{ display: 'flex', gap: 'clamp(12px, 3vw, 24px)', justifyContent: 'center', flexWrap: 'wrap', position: 'relative' }}>
                     <a href="mailto:hello@nexus.agency" className="btn-solid">Start Your Project →</a>
-                    <a href="#" className="btn-glass">Schedule a Call</a>
+                    <a href="tel:+919876543210" className="btn-glass">Schedule a Call</a>
                 </div>
             </div>
 
@@ -77,11 +77,17 @@ function Footer() {
                     <div>
                         <h4 style={{ fontSize: 'clamp(12px, 2vw, 16px)', letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 'clamp(16px, 3vw, 28px)' }}>Contact</h4>
                         <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 'clamp(10px, 2vw, 18px)' }}>
-                            {['hello@nexus.agency', '+91 98765 43210', 'Hyderabad, India'].map(s => (
-                                <li key={s}><a href="mailto:hello@nexus.agency" style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'rgba(255,255,255,0.6)', transition: 'color .2s' }}
-                                    onMouseEnter={e => e.target.style.color = 'var(--white)'}
-                                    onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.6)'}
-                                >{s}</a></li>
+                            {[
+                                { label: 'hello@nexus.agency', href: 'mailto:hello@nexus.agency' },
+                                { label: '+91 98765 43210', href: 'tel:+919876543210' },
+                                { label: 'Hyderabad, India', href: '#' },
+                            ].map(({ label, href }) => (
+                                <li key={label}>
+                                    <a href={href} style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'rgba(255,255,255,0.6)', transition: 'color .2s' }}
+                                        onMouseEnter={e => e.target.style.color = 'var(--white)'}
+                                        onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.6)'}
+                                    >{label}</a>
+                                </li>
                             ))}
                         </ul>
                     </div>

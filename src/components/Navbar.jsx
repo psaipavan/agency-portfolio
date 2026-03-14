@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
 
-    // Responsive padding values
     const navPadding = 'clamp(12px, 3vw, 36px)'
     const logoFontSize = 'clamp(28px, 4vw, 40px)'
     const linkFontSize = 'clamp(14px, 2vw, 18px)'
@@ -43,7 +42,7 @@ function Navbar() {
                 </ul>
 
                 {/* Desktop CTA */}
-                <a href="#contact" className="nav-desktop-cta" style={{
+                <a href="mailto:hello@nexus.agency" className="nav-desktop-cta" style={{
                     padding: 'clamp(12px, 2vw, 16px) clamp(20px, 3vw, 36px)', borderRadius: 100,
                     background: 'var(--glass-md)', border: '1px solid var(--border)',
                     color: 'var(--white)', fontSize: 'clamp(13px, 2vw, 17px)', fontWeight: 600,
@@ -83,7 +82,7 @@ function Navbar() {
                         {label}
                     </a>
                 ))}
-                <a href="#contact" onClick={() => setIsOpen(false)} style={{
+                <a href="mailto:hello@nexus.agency" onClick={() => setIsOpen(false)} style={{
                     padding: '14px 32px', borderRadius: 100, background: 'var(--white)', color: '#080818',
                     fontSize: 16, fontWeight: 600, textDecoration: 'none', marginTop: 20
                 }}>
