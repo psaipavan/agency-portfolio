@@ -124,11 +124,15 @@ img {
 
 /* ── SECTION BASE ── */
 .sec {
+<<<<<<< Updated upstream
 <<<<<<< HEAD
   padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 60px);
 =======
   padding: clamp(60px, 8vw, 140px) clamp(20px, 5vw, 80px);
 >>>>>>> 91e3e937abbfa741d537a5302da9c0150447ebfb
+=======
+  padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 40px);
+>>>>>>> Stashed changes
   max-width: 1600px;
   margin: 0 auto;
   position: relative;
@@ -145,11 +149,15 @@ img {
 
 .sec-h2 {
   font-family: 'Bebas Neue', cursive;
+<<<<<<< Updated upstream
 <<<<<<< HEAD
   font-size: clamp(32px, 6vw, 64px);
 =======
   font-size: clamp(32px, 6vw, 88px);
 >>>>>>> 91e3e937abbfa741d537a5302da9c0150447ebfb
+=======
+  font-size: clamp(28px, 5vw, 48px);
+>>>>>>> Stashed changes
   font-weight: 400;
   letter-spacing: 2px;
   line-height: 1.0;
@@ -216,7 +224,11 @@ img {
 .divider {
   height: 1px;
   background: var(--border);
+<<<<<<< Updated upstream
   margin: 0 clamp(16px, 4vw, 80px);
+=======
+  margin: 0 40px;
+>>>>>>> Stashed changes
 }
 
 /* ── FADE-IN ── */
@@ -337,7 +349,11 @@ img {
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+<<<<<<< Updated upstream
   gap: clamp(30px, 6vw, 80px);
+=======
+  gap: 48px;
+>>>>>>> Stashed changes
 }
 
 .grid-3 {

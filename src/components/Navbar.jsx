@@ -13,7 +13,11 @@ function Navbar() {
         <>
             <nav className="nexus-nav" style={{
                 position: 'fixed', top: 0, left: 0, right: 0, zIndex: 500,
+<<<<<<< Updated upstream
                 padding: `${navPadding} clamp(16px, 4vw, 80px)`,
+=======
+                padding: 'clamp(16px, 2vw, 24px) clamp(20px, 5vw, 40px)',
+>>>>>>> Stashed changes
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                 background: 'rgba(6,6,16,0.65)',
                 backdropFilter: 'blur(24px) saturate(160%)',
@@ -21,8 +25,13 @@ function Navbar() {
                 borderBottom: '1px solid var(--border)',
             }}>
                 <div style={{
+<<<<<<< Updated upstream
                     fontFamily: "'Bebas Neue', cursive", fontSize: logoFontSize, fontWeight: 400,
                     letterSpacing: 2, color: 'var(--white)', zIndex: 501, position: 'relative'
+=======
+                    fontFamily: "'Bebas Neue', cursive", fontSize: 'clamp(24px, 3vw, 32px)', fontWeight: 400,
+                    letterSpacing: 4, color: 'var(--white)', zIndex: 501, position: 'relative'
+>>>>>>> Stashed changes
                 }}>
                     NEX<span style={{ color: 'rgba(255,255,255,0.45)' }}>US</span>
                 </div>

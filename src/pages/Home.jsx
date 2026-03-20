@@ -84,7 +84,11 @@ function Home() {
                 <div className="grid-3" style={{ marginTop: 'clamp(50px, 8vw, 100px)' }}>
                     {services.map(({ icon, title, desc }) => (
                         <div key={title} className="glass-card fi" style={{
+<<<<<<< Updated upstream
                             padding: 'clamp(32px, 6vw, 64px) clamp(24px, 5vw, 48px)', borderRadius: 28,
+=======
+                            padding: 'clamp(32px, 4vw, 48px) clamp(24px, 4vw, 36px)', borderRadius: 24,
+>>>>>>> Stashed changes
                             transition: 'background .3s, border-color .3s, transform .3s', cursor: 'pointer',
                         }}
                             onMouseEnter={e => { e.currentTarget.style.background = 'var(--glass-hv)'; e.currentTarget.style.borderColor = 'var(--border-hv)'; e.currentTarget.style.transform = 'translateY(-8px)'; }}
@@ -140,7 +144,11 @@ function Home() {
                             <div className="wi-overlay" style={{
                                 position: 'absolute', inset: 0,
                                 background: 'linear-gradient(to top, rgba(6,6,16,0.85) 0%, transparent 60%)',
+<<<<<<< Updated upstream
                                 display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'clamp(24px, 4vw, 48px)',
+=======
+                                display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'clamp(24px, 4vw, 36px)',
+>>>>>>> Stashed changes
                                 opacity: 0, transition: 'opacity .3s',
                             }}>
                                 <div style={{ fontSize: 'clamp(12px, 2vw, 18px)', letterSpacing: 2.5, textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: 8 }}>{tag}</div>
@@ -192,7 +200,11 @@ function Home() {
                 <h2 className="sec-h2">Clients Love<br />Working With Us</h2>
                 <div className="grid-3" style={{ marginTop: 'clamp(50px, 8vw, 100px)' }}>
                     {testimonials.map(({ av, name, role, text }) => (
+<<<<<<< Updated upstream
                         <div key={name} className="glass-card fi" style={{ padding: 'clamp(32px, 6vw, 56px)', borderRadius: 28, position: 'relative', overflow: 'hidden' }}>
+=======
+                        <div key={name} className="glass-card fi" style={{ padding: 'clamp(32px, 4vw, 44px)', borderRadius: 24, position: 'relative', overflow: 'hidden' }}>
+>>>>>>> Stashed changes
                             <div style={{
                                 position: 'absolute', top: 'clamp(8px, 2vw, 16px)', right: 'clamp(16px, 3vw, 32px)',
                                 fontSize: 'clamp(80px, 15vw, 140px)', lineHeight: 1, fontFamily: "'Bebas Neue',cursive",
@@ -226,7 +238,11 @@ function Home() {
                 <div className="grid-3" style={{ marginTop: 'clamp(50px, 8vw, 100px)' }}>
                     {plans.map(({ tier, price, sub, featured, badge, features, cta }) => (
                         <div key={tier} className="glass-card fi" style={{
+<<<<<<< Updated upstream
                             padding: 'clamp(32px, 6vw, 64px)', borderRadius: 32, position: 'relative', overflow: 'hidden',
+=======
+    padding: '32px clamp(24px, 4vw, 40px)', borderRadius: 28, position: 'relative', overflow: 'hidden',
+>>>>>>> Stashed changes
                             transition: 'transform .3s',
                             display: 'flex', flexDirection: 'column',
                             ...(featured ? {
@@ -246,8 +262,13 @@ function Home() {
                                     fontSize: 'clamp(11px, 1.5vw, 14px)', letterSpacing: 1.5, color: 'var(--muted)',
                                 }}>{badge}</div>
                             )}
+<<<<<<< Updated upstream
                             <div style={{ fontSize: 'clamp(12px, 1.5vw, 16px)', letterSpacing: 2.5, textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 'clamp(12px, 2vw, 20px)' }}>{tier}</div>
                             <div style={{ fontFamily: "'Bebas Neue',cursive", fontSize: 'clamp(48px, 10vw, 80px)', fontWeight: 400, letterSpacing: 3, lineHeight: 1, marginBottom: 'clamp(8px, 2vw, 12px)' }}>
+=======
+                            <div style={{ fontSize: 'clamp(12px, 1.8vw, 16px)', letterSpacing: 2.5, textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 20 }}>{tier}</div>
+                            <div style={{ fontFamily: "'Bebas Neue',cursive", fontSize: 'clamp(44px, 10vw, 64px)', fontWeight: 400, letterSpacing: 3, lineHeight: 1, marginBottom: 12 }}>
+>>>>>>> Stashed changes
                                 {price.startsWith('$') ? <><sup style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 600, opacity: 0.6 }}>$</sup>{price.slice(1)}</> : price}
                             </div>
                             <div style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'var(--muted)', marginBottom: 'clamp(30px, 6vw, 48px)' }}>{sub}</div>
