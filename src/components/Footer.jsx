@@ -3,7 +3,7 @@ function Footer() {
         <>
             {/* CTA Band */}
             <div id="contact" className="cta-band" style={{
-                margin: 'clamp(60px, 10vw, 100px) clamp(20px, 5vw, 40px)', borderRadius: 24, padding: 'clamp(40px, 8vw, 80px) clamp(24px, 4vw, 60px)',
+                margin: '0 clamp(16px, 4vw, 80px) clamp(60px, 8vw, 140px)', borderRadius: 32, padding: 'clamp(40px, 8vw, 120px) clamp(24px, 6vw, 100px)',
                 background: 'var(--glass)', border: '1px solid var(--border)',
                 backdropFilter: 'blur(30px) saturate(160%)',
                 textAlign: 'center', position: 'relative', overflow: 'hidden', zIndex: 1,
@@ -16,8 +16,8 @@ function Footer() {
                 }} />
                 <h2 style={{
                     fontFamily: "'Bebas Neue', cursive",
-                    fontSize: 'clamp(32px, 8vw, 56px)', fontWeight: 400,
-                    letterSpacing: 2, marginBottom: 32, position: 'relative',
+                    fontSize: 'clamp(40px, 8vw, 120px)', fontWeight: 400,
+                    letterSpacing: 2, marginBottom: 'clamp(20px, 4vw, 32px)', position: 'relative',
                 }}>
                     Ready to Build<br />
                     <em style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic', letterSpacing: 1, fontSize: '0.88em' }}>Something</em> Great?
@@ -33,13 +33,13 @@ function Footer() {
 
             {/* Footer */}
             <footer style={{
-                borderTop: '1px solid var(--border)', padding: 'clamp(40px, 8vw, 80px) clamp(20px, 5vw, 40px) 40px',
+                borderTop: '1px solid var(--border)', padding: 'clamp(40px, 8vw, 100px) clamp(16px, 4vw, 80px) clamp(30px, 5vw, 60px)',
                 maxWidth: 1600, margin: '0 auto', position: 'relative', zIndex: 1,
             }}>
-                <div className="grid-footer" style={{ marginBottom: 'clamp(40px, 6vw, 60px)' }}>
+                <div className="grid-footer" style={{ marginBottom: 'clamp(40px, 8vw, 80px)' }}>
                     {/* Brand */}
                     <div>
-                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 'clamp(28px, 4vw, 36px)', fontWeight: 400, letterSpacing: 4, marginBottom: 24 }}>
+                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 'clamp(32px, 6vw, 48px)', fontWeight: 400, letterSpacing: 4, marginBottom: 'clamp(16px, 3vw, 24px)' }}>
                             NEX<span style={{ color: 'var(--muted)' }}>US</span>
                         </div>
                         <p style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'var(--muted)', lineHeight: 1.8, maxWidth: 420 }}>

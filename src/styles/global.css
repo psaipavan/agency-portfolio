@@ -124,6 +124,7 @@ img {
 
 /* ── SECTION BASE ── */
 .sec {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
   padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 60px);
@@ -133,6 +134,9 @@ img {
 =======
   padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 40px);
 >>>>>>> Stashed changes
+=======
+  padding: clamp(60px, 8vw, 140px) clamp(20px, 5vw, 80px);
+>>>>>>> 95883c12deeaebd410e442cd3f7eba38db7d24d7
   max-width: 1600px;
   margin: 0 auto;
   position: relative;
@@ -149,6 +153,7 @@ img {
 
 .sec-h2 {
   font-family: 'Bebas Neue', cursive;
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
   font-size: clamp(32px, 6vw, 64px);
@@ -158,6 +163,9 @@ img {
 =======
   font-size: clamp(28px, 5vw, 48px);
 >>>>>>> Stashed changes
+=======
+  font-size: clamp(32px, 6vw, 88px);
+>>>>>>> 95883c12deeaebd410e442cd3f7eba38db7d24d7
   font-weight: 400;
   letter-spacing: 2px;
   line-height: 1.0;
@@ -166,10 +174,14 @@ img {
 
 .sec-sub {
 <<<<<<< HEAD
+<<<<<<< HEAD
   font-size: clamp(16px, 3vw, 18px);
 =======
   font-size: clamp(16px, 3vw, 20px);
 >>>>>>> 91e3e937abbfa741d537a5302da9c0150447ebfb
+=======
+  font-size: clamp(16px, 3vw, 20px);
+>>>>>>> 95883c12deeaebd410e442cd3f7eba38db7d24d7
   color: var(--muted);
   line-height: 1.8;
   max-width: 680px;

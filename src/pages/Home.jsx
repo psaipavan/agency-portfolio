@@ -86,9 +86,12 @@ function Home() {
                         <div key={title} className="glass-card fi" style={{
 <<<<<<< Updated upstream
                             padding: 'clamp(32px, 6vw, 64px) clamp(24px, 5vw, 48px)', borderRadius: 28,
+<<<<<<< HEAD
 =======
                             padding: 'clamp(32px, 4vw, 48px) clamp(24px, 4vw, 36px)', borderRadius: 24,
 >>>>>>> Stashed changes
+=======
+>>>>>>> 95883c12deeaebd410e442cd3f7eba38db7d24d7
                             transition: 'background .3s, border-color .3s, transform .3s', cursor: 'pointer',
                         }}
                             onMouseEnter={e => { e.currentTarget.style.background = 'var(--glass-hv)'; e.currentTarget.style.borderColor = 'var(--border-hv)'; e.currentTarget.style.transform = 'translateY(-8px)'; }}
@@ -144,11 +147,15 @@ function Home() {
                             <div className="wi-overlay" style={{
                                 position: 'absolute', inset: 0,
                                 background: 'linear-gradient(to top, rgba(6,6,16,0.85) 0%, transparent 60%)',
+<<<<<<< HEAD
 <<<<<<< Updated upstream
                                 display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'clamp(24px, 4vw, 48px)',
 =======
                                 display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'clamp(24px, 4vw, 36px)',
 >>>>>>> Stashed changes
+=======
+                                display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'clamp(24px, 4vw, 48px)',
+>>>>>>> 95883c12deeaebd410e442cd3f7eba38db7d24d7
                                 opacity: 0, transition: 'opacity .3s',
                             }}>
                                 <div style={{ fontSize: 'clamp(12px, 2vw, 18px)', letterSpacing: 2.5, textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: 8 }}>{tag}</div>
@@ -240,9 +247,12 @@ function Home() {
                         <div key={tier} className="glass-card fi" style={{
 <<<<<<< Updated upstream
                             padding: 'clamp(32px, 6vw, 64px)', borderRadius: 32, position: 'relative', overflow: 'hidden',
+<<<<<<< HEAD
 =======
     padding: '32px clamp(24px, 4vw, 40px)', borderRadius: 28, position: 'relative', overflow: 'hidden',
 >>>>>>> Stashed changes
+=======
+>>>>>>> 95883c12deeaebd410e442cd3f7eba38db7d24d7
                             transition: 'transform .3s',
                             display: 'flex', flexDirection: 'column',
                             ...(featured ? {

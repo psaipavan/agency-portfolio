@@ -14,7 +14,7 @@ function Hero() {
     return (
         <section className="hero-wrapper sec" style={{
             minHeight: '100vh', display: 'flex', alignItems: 'center',
-            padding: '120px 40px 80px', position: 'relative', zIndex: 1,
+            padding: 'clamp(80px, 10vw, 160px) clamp(16px, 4vw, 80px) clamp(60px, 8vw, 100px)', position: 'relative', zIndex: 1,
         }}>
             <div className="grid-2 hero-grid" style={{
                 maxWidth: 1600, margin: '0 auto', width: '100%', alignItems: 'center'
@@ -28,9 +28,9 @@ function Hero() {
 
                     <h1 style={{
                         fontFamily: "'Bebas Neue', cursive",
-                        fontSize: 'clamp(32px, 8vw, 72px)',
-                        fontWeight: 400, lineHeight: 0.92, letterSpacing: 2,
-                        marginBottom: 24,
+                        fontSize: 'clamp(40px, 10vw, 160px)',
+                        fontWeight: 400, lineHeight: 0.92, letterSpacing: 'clamp(1px, 0.2vw, 2px)',
+                        marginBottom: 'clamp(24px, 5vw, 40px)',
                         background: 'linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.6) 100%)',
                         WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
                     }}>
@@ -41,7 +41,7 @@ function Hero() {
                         {' '}That<br />Convert.
                     </h1>
 
-                    <p style={{ fontSize: 'clamp(15px, 2.5vw, 17px)', lineHeight: 1.7, color: 'var(--muted)', maxWidth: 600, marginBottom: 40, fontWeight: 300 }}>
+                    <p style={{ fontSize: 'clamp(16px, 3vw, 22px)', lineHeight: 1.8, color: 'var(--muted)', maxWidth: 640, marginBottom: 'clamp(32px, 6vw, 56px)', fontWeight: 300 }}>
                         A digital agency obsessed with crafting high-performance websites. Precision design, clean code, results that matter.
                     </p>
 
@@ -50,11 +50,11 @@ function Hero() {
                         <a href="#process" className="btn-glass">How We Work</a>
                     </div>
 
-                    <div className="hero-stats" style={{ display: 'flex', gap: 'clamp(32px, 6vw, 48px)', marginTop: 'clamp(24px, 6vw, 40px)', paddingTop: 'clamp(24px, 6vw, 40px)', borderTop: '1px solid var(--border)' }}>
+                    <div className="hero-stats" style={{ display: 'flex', gap: 'clamp(40px, 8vw, 80px)', marginTop: 'clamp(32px, 8vw, 72px)', paddingTop: 'clamp(32px, 8vw, 72px)', borderTop: '1px solid var(--border)' }}>
                         {[['120+', 'Projects Delivered'], ['98%', 'Client Satisfaction'], ['4.9★', 'Average Rating']].map(([n, l]) => (
                             <div key={l}>
-                                <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 'clamp(28px, 5vw, 40px)', fontWeight: 400, letterSpacing: 2, color: 'var(--white)' }}>{n}</div>
-                                <div style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: 'var(--muted)', marginTop: 8 }}>{l}</div>
+                                <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 'clamp(32px, 6vw, 64px)', fontWeight: 400, letterSpacing: 2, color: 'var(--white)' }}>{n}</div>
+                                <div style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'var(--muted)', marginTop: 8 }}>{l}</div>
                             </div>
                         ))}
                     </div>
@@ -62,10 +62,10 @@ function Hero() {
 
                 <div className="hero-visual-col" style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     {/* Main card */}
-                    <div className="glass-card" style={{ width: '100%', maxWidth: 480, padding: 32, position: 'relative', borderRadius: 24 }}>
-                        <div style={{ fontSize: 16, color: 'var(--muted)', letterSpacing: 2, marginBottom: 12, textTransform: 'uppercase' }}>Conversion Rate ↑</div>
-                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 56, fontWeight: 400, letterSpacing: 2, color: 'var(--white)', marginBottom: 8 }}>+284%</div>
-                        <div style={{ fontSize: 18, color: 'rgba(160,240,160,0.8)', marginBottom: 40 }}>↑ 38% vs last month</div>
+                    <div className="glass-card" style={{ width: '100%', maxWidth: 520, padding: 'clamp(24px, 5vw, 48px)', position: 'relative', borderRadius: 32 }}>
+                        <div style={{ fontSize: 'clamp(12px, 2vw, 16px)', color: 'var(--muted)', letterSpacing: 2, marginBottom: 12, textTransform: 'uppercase' }}>Conversion Rate ↑</div>
+                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 'clamp(48px, 8vw, 72px)', fontWeight: 400, letterSpacing: 2, color: 'var(--white)', marginBottom: 10 }}>+284%</div>
+                        <div style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'rgba(160,240,160,0.8)', marginBottom: 'clamp(24px, 5vw, 40px)' }}>↑ 38% vs last month</div>
 
                         {/* Mini bar chart */}
                         <div style={{ display: 'flex', alignItems: 'flex-end', gap: 'clamp(6px, 2vw, 12px)', height: 'clamp(80px, 15vw, 120px)', marginBottom: 'clamp(24px, 5vw, 40px)' }}>
@@ -116,7 +116,7 @@ function Hero() {
                         animation: 'fl1 6s ease-in-out infinite',
                     }}>
                         <div style={{ color: 'var(--muted)', marginBottom: 6 }}>Page Speed</div>
-                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontWeight: 400, fontSize: 36, letterSpacing: 2, color: 'var(--white)' }}>98/100</div>
+                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontWeight: 400, fontSize: 'clamp(32px, 5vw, 48px)', letterSpacing: 2, color: 'var(--white)' }}>98/100</div>
                     </div>
 
                     {/* Floating chip 2 */}
@@ -126,7 +126,7 @@ function Hero() {
                         animation: 'fl2 7s ease-in-out infinite',
                     }}>
                         <div style={{ color: 'var(--muted)', marginBottom: 6 }}>Monthly Traffic</div>
-                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontWeight: 400, fontSize: 36, letterSpacing: 2, color: 'var(--white)' }}>2.4M</div>
+                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontWeight: 400, fontSize: 'clamp(32px, 5vw, 48px)', letterSpacing: 2, color: 'var(--white)' }}>2.4M</div>
                     </div>
                 </div>
             </div>
