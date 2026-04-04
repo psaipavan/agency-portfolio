@@ -5,15 +5,15 @@ function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
 
     // Responsive padding values
-    const navPadding = 'clamp(12px, 3vw, 36px)'
-    const logoFontSize = 'clamp(28px, 4vw, 40px)'
-    const linkFontSize = 'clamp(14px, 2vw, 18px)'
+    const navPadding = 'clamp(10px, 2vw, 24px)'
+    const logoFontSize = 'clamp(24px, 3vw, 28px)'
+    const linkFontSize = '14px'
 
     return (
         <>
             <nav className="nexus-nav" style={{
                 position: 'fixed', top: 0, left: 0, right: 0, zIndex: 500,
-                padding: 'clamp(16px, 2vw, 24px) clamp(20px, 5vw, 40px)',
+                padding: 'clamp(12px, 2vw, 16px) clamp(16px, 4vw, 32px)',
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                 background: 'rgba(6,6,16,0.65)',
                 backdropFilter: 'blur(24px) saturate(160%)',
@@ -21,7 +21,7 @@ function Navbar() {
                 borderBottom: '1px solid var(--border)',
             }}>
                 <div style={{
-                    fontFamily: "'Bebas Neue', cursive", fontSize: 'clamp(24px, 3vw, 32px)', fontWeight: 400,
+                    fontFamily: "'Bebas Neue', cursive", fontSize: 'clamp(24px, 3vw, 28px)', fontWeight: 400,
                     letterSpacing: 4, color: 'var(--white)', zIndex: 501, position: 'relative'
                 }}>
                     NEX<span style={{ color: 'rgba(255,255,255,0.45)' }}>US</span>
@@ -44,9 +44,9 @@ function Navbar() {
 
                 {/* Desktop CTA */}
                 <a href="#contact" className="nav-desktop-cta" style={{
-                    padding: 'clamp(12px, 2vw, 16px) clamp(20px, 3vw, 36px)', borderRadius: 100,
+                    padding: 'clamp(10px, 1.5vw, 12px) clamp(16px, 3vw, 24px)', borderRadius: 100,
                     background: 'var(--glass-md)', border: '1px solid var(--border)',
-                    color: 'var(--white)', fontSize: 'clamp(13px, 2vw, 17px)', fontWeight: 600,
+                    color: 'var(--white)', fontSize: '13px', fontWeight: 600,
                     textDecoration: 'none', backdropFilter: 'blur(10px)',
                     transition: 'background .2s, border-color .2s, transform .2s',
                     whiteSpace: 'nowrap',
@@ -59,7 +59,7 @@ function Navbar() {
                 <button
                     className="nav-mobile-btn"
                     onClick={() => setIsOpen(!isOpen)}
-                    style={{ zIndex: 501, position: 'relative', fontSize: 'clamp(18px, 4vw, 24px)' }}
+                    style={{ zIndex: 501, position: 'relative', fontSize: 'clamp(18px, 4vw, 22px)' }}
                 >
                     {isOpen ? '✕' : '☰'}
                 </button>
