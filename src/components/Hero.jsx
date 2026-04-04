@@ -14,7 +14,7 @@ function Hero() {
     return (
         <section className="hero-wrapper sec" style={{
             minHeight: '100vh', display: 'flex', alignItems: 'center',
-            padding: 'clamp(80px, 10vw, 160px) clamp(16px, 4vw, 80px) clamp(60px, 8vw, 100px)', position: 'relative', zIndex: 1,
+            padding: '100px 40px 60px', position: 'relative', zIndex: 1,
         }}>
             <div className="grid-2 hero-grid" style={{
                 maxWidth: 1600, margin: '0 auto', width: '100%', alignItems: 'center'
@@ -28,9 +28,9 @@ function Hero() {
 
                     <h1 style={{
                         fontFamily: "'Bebas Neue', cursive",
-                        fontSize: 'clamp(40px, 10vw, 160px)',
-                        fontWeight: 400, lineHeight: 0.92, letterSpacing: 'clamp(1px, 0.2vw, 2px)',
-                        marginBottom: 'clamp(24px, 5vw, 40px)',
+                        fontSize: 'clamp(32px, 6vw, 56px)',
+                        fontWeight: 400, lineHeight: 1, letterSpacing: 'clamp(1px, 0.2vw, 2px)',
+                        marginBottom: 20,
                         background: 'linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.6) 100%)',
                         WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
                     }}>
@@ -41,7 +41,7 @@ function Hero() {
                         {' '}That<br />Convert.
                     </h1>
 
-                    <p style={{ fontSize: 'clamp(16px, 3vw, 22px)', lineHeight: 1.8, color: 'var(--muted)', maxWidth: 640, marginBottom: 'clamp(32px, 6vw, 56px)', fontWeight: 300 }}>
+                    <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', lineHeight: 1.8, color: 'var(--muted)', maxWidth: 640, marginBottom: 32, fontWeight: 300 }}>
                         A digital agency obsessed with crafting high-performance websites. Precision design, clean code, results that matter.
                     </p>
 
@@ -50,11 +50,11 @@ function Hero() {
                         <a href="#process" className="btn-glass">How We Work</a>
                     </div>
 
-                    <div className="hero-stats" style={{ display: 'flex', gap: 'clamp(40px, 8vw, 80px)', marginTop: 'clamp(32px, 8vw, 72px)', paddingTop: 'clamp(32px, 8vw, 72px)', borderTop: '1px solid var(--border)' }}>
+                    <div className="hero-stats" style={{ display: 'flex', gap: 'clamp(24px, 4vw, 36px)', marginTop: 'clamp(20px, 4vw, 32px)', paddingTop: 'clamp(20px, 4vw, 32px)', borderTop: '1px solid var(--border)' }}>
                         {[['120+', 'Projects Delivered'], ['98%', 'Client Satisfaction'], ['4.9★', 'Average Rating']].map(([n, l]) => (
                             <div key={l}>
-                                <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 'clamp(32px, 6vw, 64px)', fontWeight: 400, letterSpacing: 2, color: 'var(--white)' }}>{n}</div>
-                                <div style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'var(--muted)', marginTop: 8 }}>{l}</div>
+                                <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 'clamp(24px, 4vw, 32px)', fontWeight: 400, letterSpacing: 2, color: 'var(--white)' }}>{n}</div>
+                                <div style={{ fontSize: 'clamp(12px, 1.5vw, 14px)', color: 'var(--muted)', marginTop: 8 }}>{l}</div>
                             </div>
                         ))}
                     </div>
@@ -62,13 +62,13 @@ function Hero() {
 
                 <div className="hero-visual-col" style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     {/* Main card */}
-                    <div className="glass-card" style={{ width: '100%', maxWidth: 520, padding: 'clamp(24px, 5vw, 48px)', position: 'relative', borderRadius: 32 }}>
-                        <div style={{ fontSize: 'clamp(12px, 2vw, 16px)', color: 'var(--muted)', letterSpacing: 2, marginBottom: 12, textTransform: 'uppercase' }}>Conversion Rate ↑</div>
-                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 'clamp(48px, 8vw, 72px)', fontWeight: 400, letterSpacing: 2, color: 'var(--white)', marginBottom: 10 }}>+284%</div>
-                        <div style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'rgba(160,240,160,0.8)', marginBottom: 'clamp(24px, 5vw, 40px)' }}>↑ 38% vs last month</div>
+                    <div className="glass-card" style={{ width: '100%', maxWidth: 400, padding: 24, position: 'relative', borderRadius: 24 }}>
+                        <div style={{ fontSize: 13, color: 'var(--muted)', letterSpacing: 2, marginBottom: 8, textTransform: 'uppercase' }}>Conversion Rate ↑</div>
+                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 44, fontWeight: 400, letterSpacing: 2, color: 'var(--white)', marginBottom: 6 }}>+284%</div>
+                        <div style={{ fontSize: 13, color: 'rgba(160,240,160,0.8)', marginBottom: 32 }}>↑ 38% vs last month</div>
 
                         {/* Mini bar chart */}
-                        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 'clamp(6px, 2vw, 12px)', height: 'clamp(80px, 15vw, 120px)', marginBottom: 'clamp(24px, 5vw, 40px)' }}>
+                        <div style={{ display: 'flex', alignItems: 'flex-end', gap: '8px', height: '100px', marginBottom: '32px' }}>
                             {[
                                 { h: '45%', hi: false },
                                 { h: '62%', hi: false },
@@ -97,13 +97,13 @@ function Hero() {
                                 { name: 'E-Commerce Platform', tag: 'Dev →', opacity: 0.35 },
                             ].map(({ name, tag, opacity }) => (
                                 <div key={name} style={{
-                                    display: 'flex', alignItems: 'center', gap: 'clamp(8px, 2vw, 16px)',
-                                    padding: 'clamp(8px, 2vw, 16px) clamp(12px, 2vw, 20px)', borderRadius: 16,
+                                    display: 'flex', alignItems: 'center', gap: '12px',
+                                    padding: '12px 16px', borderRadius: 16,
                                     background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)',
                                 }}>
-                                    <div style={{ width: 12, height: 12, borderRadius: '50%', background: 'rgba(255,255,255,0.5)', flexShrink: 0, opacity }} />
-                                    <span style={{ fontSize: 'clamp(13px, 2vw, 18px)', color: 'rgba(255,255,255,0.7)', flex: 1, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{name}</span>
-                                    <span style={{ fontSize: 'clamp(12px, 1.5vw, 14px)', color: 'var(--muted)' }}>{tag}</span>
+                                    <div style={{ width: 10, height: 10, borderRadius: '50%', background: 'rgba(255,255,255,0.5)', flexShrink: 0, opacity }} />
+                                    <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', flex: 1, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{name}</span>
+                                    <span style={{ fontSize: '12px', color: 'var(--muted)' }}>{tag}</span>
                                 </div>
                             ))}
                         </div>
@@ -111,22 +111,22 @@ function Hero() {
 
                     {/* Floating chip 1 */}
                     <div className="glass-card" style={{
-                        position: 'absolute', top: 'clamp(-24px, -5vw, -32px)', right: 'clamp(-40px, -8vw, -60px)', zIndex: 2,
-                        padding: 'clamp(12px, 2vw, 20px) clamp(16px, 3vw, 28px)', borderRadius: 20, fontSize: 'clamp(13px, 2vw, 16px)',
+                        position: 'absolute', top: -16, right: -32, zIndex: 2,
+                        padding: '12px 20px', borderRadius: 20, fontSize: '12px',
                         animation: 'fl1 6s ease-in-out infinite',
                     }}>
-                        <div style={{ color: 'var(--muted)', marginBottom: 6 }}>Page Speed</div>
-                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontWeight: 400, fontSize: 'clamp(32px, 5vw, 48px)', letterSpacing: 2, color: 'var(--white)' }}>98/100</div>
+                        <div style={{ color: 'var(--muted)', marginBottom: 4 }}>Page Speed</div>
+                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontWeight: 400, fontSize: 28, letterSpacing: 2, color: 'var(--white)' }}>98/100</div>
                     </div>
 
                     {/* Floating chip 2 */}
                     <div className="glass-card" style={{
-                        position: 'absolute', bottom: 'clamp(40px, 6vw, 60px)', left: 'clamp(-40px, -8vw, -60px)', zIndex: 2,
-                        padding: 'clamp(12px, 2vw, 20px) clamp(16px, 3vw, 28px)', borderRadius: 20, fontSize: 'clamp(13px, 2vw, 16px)',
+                        position: 'absolute', bottom: 40, left: -40, zIndex: 2,
+                        padding: '12px 20px', borderRadius: 20, fontSize: '12px',
                         animation: 'fl2 7s ease-in-out infinite',
                     }}>
-                        <div style={{ color: 'var(--muted)', marginBottom: 6 }}>Monthly Traffic</div>
-                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontWeight: 400, fontSize: 'clamp(32px, 5vw, 48px)', letterSpacing: 2, color: 'var(--white)' }}>2.4M</div>
+                        <div style={{ color: 'var(--muted)', marginBottom: 4 }}>Monthly Traffic</div>
+                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontWeight: 400, fontSize: 28, letterSpacing: 2, color: 'var(--white)' }}>2.4M</div>
                     </div>
                 </div>
             </div>
