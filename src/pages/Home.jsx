@@ -242,7 +242,7 @@ function Home() {
                     {projects.map(({ num, tag, category, name, subtitle, desc, result, resultLabel, image, accent, layout }, idx) => (
                         <div
                             key={name}
-                            className={`fi-rotate port-card port-card--${layout}`}
+                            className={`fi-scale port-card port-card--${layout}`}
                             style={{ '--port-accent': accent, transitionDelay: `${idx * 80}ms` }}
                             onClick={() => window.open(getWA(`Hi! I saw "${name}" (${subtitle}) in your portfolio and want something similar.`), '_blank')}
                         >

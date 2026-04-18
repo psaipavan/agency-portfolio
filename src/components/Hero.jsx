@@ -34,7 +34,7 @@ function Hero() {
             </div>
 
             {/* Headline */}
-            <h1 className="fi-scale" style={{
+            <h1 className="fi-scale hero-title" style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: 'clamp(36px, 7vw, 84px)',
                 fontWeight: 800,
@@ -58,7 +58,7 @@ function Hero() {
             </h1>
 
             {/* Subtext */}
-            <p className="fi-scale" style={{
+            <p className="fi-scale hero-sub" style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: 'clamp(16px, 2vw, 20px)',
                 lineHeight: 1.65,
