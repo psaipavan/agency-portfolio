@@ -1,63 +1,163 @@
 import { useEffect } from 'react'
 import Hero from '../components/Hero'
 
+const WHATSAPP_NUMBER = '919876543210'
+const getWA = (msg) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`
+const scrollTo = (e, id) => {
+    e.preventDefault()
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
+/* ── DATA ── */
 const services = [
-    { icon: '🎨', title: 'UI/UX Design', desc: 'Conversion-focused interfaces crafted with deep user research and battle-tested design principles.' },
-    { icon: '⚡', title: 'Web Development', desc: 'Blazing-fast websites built with modern tech. Perfect Lighthouse scores, clean code, zero compromise.' },
-    { icon: '🛒', title: 'E-Commerce', desc: 'Online stores engineered to sell. From Shopify to custom builds — we optimize every step of the funnel.' },
-    { icon: '📊', title: 'Landing Pages', desc: 'High-converting pages that turn visitors into leads. A/B tested and data-driven by default.' },
-    { icon: '🚀', title: 'SaaS Websites', desc: 'Marketing sites that communicate complex products clearly and drive trial signups at scale.' },
-    { icon: '✦', title: 'Brand & Motion', desc: 'Visual identity systems and motion design that make your brand impossible to forget.' },
+    {
+        icon: (
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18"/><path d="M9 21V9"/>
+            </svg>
+        ),
+        title: 'UI/UX Design',
+        desc: 'Research-driven interfaces with wireframing, prototyping, and pixel-perfect execution that measurably boosts engagement and conversion rates.',
+        tag: 'Design',
+    },
+    {
+        icon: (
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+            </svg>
+        ),
+        title: 'Web Development',
+        desc: 'High-performance React & Next.js applications with clean architecture, zero technical debt, and 99+ Lighthouse scores on every build.',
+        tag: 'Engineering',
+    },
+    {
+        icon: (
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+        ),
+        title: 'E-Commerce',
+        desc: 'Shopify, WooCommerce, or custom storefronts built for revenue — with checkout flow optimisation, upsell logic, and conversion analytics.',
+        tag: 'Commerce',
+    },
+    {
+        icon: (
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/>
+            </svg>
+        ),
+        title: 'SEO & Growth',
+        desc: 'Data-backed strategies that grow organic traffic month over month — technical SEO, content architecture, and link building with real, lasting ROI.',
+        tag: 'Growth',
+    },
+    {
+        icon: (
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                <line x1="4" y1="22" x2="4" y2="15"/>
+            </svg>
+        ),
+        title: 'Brand Identity',
+        desc: 'Logos, color palettes, typography systems, and brand guidelines that give you a cohesive, professional presence that people remember.',
+        tag: 'Branding',
+    },
+    {
+        icon: (
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.08 3.4 2 2 0 0 1 3.05 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/>
+            </svg>
+        ),
+        title: 'Digital Marketing',
+        desc: 'Full-funnel campaigns — PPC, social, email, and content — with transparent reporting dashboards and clear attribution for every rupee spent.',
+        tag: 'Marketing',
+    },
 ]
 
-const work = [
-    { tag: 'SaaS · Web Design', name: 'TechLaunch — Platform Redesign', bg: 'linear-gradient(135deg,#0e0e22,#131330)', span: 7, ratio: '7/4' },
-    { tag: 'Fintech · Dashboard', name: 'Vaultify — Finance App', bg: 'linear-gradient(160deg,#0a0a1e,#14102a)', span: 5, ratio: '5/4' },
-    { tag: 'E-Commerce · Brand', name: 'Lumis — Luxury Store', bg: 'linear-gradient(135deg,#0c1220,#0a1a18)', span: 4, ratio: '4/3' },
-    { tag: 'Agency · Landing Page', name: 'Orbital — Growth Agency', bg: 'linear-gradient(100deg,#100e22,#0a1822,#160e1e)', span: 8, ratio: '8/3' },
+const projects = [
+    {
+        num: '01',
+        tag: 'SaaS Platform',
+        category: 'Product Design & Engineering',
+        name: 'NovaTech',
+        subtitle: 'Enterprise SaaS Redesign',
+        desc: 'Complete product overhaul — simplified onboarding, redesigned analytics dashboard, and refactored core. User engagement up 240%, churn cut by 35% in Q1.',
+        result: '+240%',
+        resultLabel: 'Conversion lift',
+        image: '/images/portfolio_saas.png',
+        accent: '#8B5CF6',
+        layout: 'wide',   // spans full row
+    },
+    {
+        num: '02',
+        tag: 'Fintech',
+        category: 'Dashboard & Data Viz',
+        name: 'FinFlow',
+        subtitle: 'Analytics Dashboard',
+        desc: 'Real-time financial analytics with AI-powered insights. Performance score: 99.',
+        result: '99/100',
+        resultLabel: 'Lighthouse score',
+        image: '/images/portfolio_fintech.png',
+        accent: '#10B981',
+        layout: 'half',   // left half
+    },
+    {
+        num: '03',
+        tag: 'E-Commerce',
+        category: 'Brand & Commerce',
+        name: 'Luxe Collective',
+        subtitle: 'Luxury Fashion Store',
+        desc: 'Premium fashion e-commerce with editorial design. Revenue increased 180% in 3 months.',
+        result: '+180%',
+        resultLabel: 'Revenue growth',
+        image: '/images/portfolio_ecommerce.png',
+        accent: '#F59E0B',
+        layout: 'half',   // right half
+    },
+    {
+        num: '04',
+        tag: 'Growth',
+        category: 'Marketing & Conversion',
+        name: 'Orbital Lab',
+        subtitle: 'Growth Marketing Hub',
+        desc: 'A/B-tested landing system with AI lead capture and funnel optimisation. Qualified lead volume tripled in 60 days.',
+        result: '3×',
+        resultLabel: 'Lead volume',
+        image: '/images/portfolio_agency.png',
+        accent: '#F43F5E',
+        layout: 'wide',   // spans full row
+    },
 ]
 
 const steps = [
-    { n: '01', t: 'Discovery', d: 'Deep dive into your goals, audience, and competitors. We map the strategy before touching design.' },
-    { n: '02', t: 'Design', d: 'Wireframes, moodboards, and high-fidelity prototypes. You approve every pixel before we build.' },
-    { n: '03', t: 'Build', d: 'Clean, semantic code with performance built in from day one. Weekly updates, zero surprises.' },
-    { n: '04', t: 'Launch', d: 'QA tested across all devices and browsers. Launch with confidence — 90-day support included.' },
+    { num: '01', title: 'Discovery', desc: 'We go deep into your goals, audience, competitors, and market dynamics — forming a clear strategy before a single pixel gets placed.' },
+    { num: '02', title: 'Design', desc: 'Wireframes, high-fidelity mockups, and interactive prototypes. You approve every detail and direction before development begins.' },
+    { num: '03', title: 'Develop', desc: 'Clean, maintainable code built on modern frameworks. Weekly demos keep you in the loop with zero surprises at handover.' },
+    { num: '04', title: 'Launch', desc: 'Rigorous QA across all devices, deployment, analytics setup, and 90 days of post-launch support included as standard.' },
 ]
 
 const testimonials = [
-    { av: 'AK', name: 'Arjun Kumar', role: 'CEO, TechLaunch', text: '"NEXUS completely transformed our online presence. Conversion rate jumped 180% in the first month. The design is stunning and the code is immaculate."' },
-    { av: 'SR', name: 'Sophia Reeves', role: 'Founder, Vaultify', text: '"Delivered ahead of schedule with zero revisions needed. Their process is airtight and the results speak for themselves. Page speed went from 62 to 98."' },
-    { av: 'MP', name: 'Marcus Park', role: 'CMO, Lumis', text: '"We\'ve worked with 4 agencies before NEXUS. None came close. They don\'t just execute — they think like business partners and care about our growth."' },
+    { initials: 'AK', name: 'Arjun Kumar', role: 'CEO, NovaTech', text: 'Good Will transformed our digital presence completely. Conversion rate jumped 240% in the first quarter. The design quality and code performance are genuinely world-class.' },
+    { initials: 'SR', name: 'Sophia Reeves', role: 'Founder, FinFlow', text: 'Delivered ahead of schedule with zero revision cycles. Their process is refreshingly transparent and the results speak for themselves — our Lighthouse score went from 42 to 99.' },
+    { initials: 'MP', name: 'Marcus Park', role: 'CMO, Luxe Collective', text: "We've hired five agencies before Good Will. None came anywhere close. They think like business partners, not vendors. Our revenue doubled within 90 days of launch." },
 ]
 
 const plans = [
-    {
-        tier: 'Starter', price: '$2,499', sub: 'One-time payment', featured: false,
-        features: ['5-page custom website', 'Mobile responsive', 'SEO foundation', 'Analytics setup', '30-day support'],
-        cta: 'Get Started',
-    },
-    {
-        tier: 'Growth', price: '$5,999', sub: 'One-time payment', featured: true, badge: 'Most Popular',
-        features: ['Up to 15 pages', 'Custom animations', 'CMS integration', 'Performance optimization', 'A/B testing setup', '90-day support'],
-        cta: 'Get Started',
-    },
-    {
-        tier: 'Enterprise', price: 'Custom', sub: 'Tailored to your needs', featured: false,
-        features: ['Unlimited pages', 'Custom web application', 'E-commerce platform', 'Priority development', 'Dedicated project manager', 'Ongoing retainer option'],
-        cta: 'Book a Call',
-    },
+    { tier: 'Starter', price: '$2,499', sub: 'One-time payment', featured: false, features: ['5-page responsive website', 'Mobile-first design', 'SEO foundation', 'Google Analytics setup', 'Contact forms & CTAs', '30-day support'], msg: "Hi! I'm interested in the Starter plan ($2,499)." },
+    { tier: 'Growth', price: '$5,999', sub: 'Best value', featured: true, features: ['Up to 15 pages', 'Custom animations', 'CMS integration', '90+ Lighthouse scores', 'A/B testing setup', 'E-Commerce ready', '90-day priority support'], msg: "Hi! I'm interested in the Growth plan ($5,999)." },
+    { tier: 'Enterprise', price: 'Custom', sub: 'Tailored for scale', featured: false, features: ['Unlimited pages', 'Custom web application', 'Full e-commerce', 'Dedicated PM', 'CI/CD & staging', 'API integrations', 'Ongoing retainer option'], msg: "Hi! I'd like to discuss Enterprise pricing." },
 ]
 
-const marqueeItems = ['Web Design', 'Landing Pages', 'E-Commerce', 'SaaS Products', 'Brand Identity', 'UI/UX Design', 'Conversion Optimization']
+const marqueeItems = ['Web Design', 'UI/UX', 'Landing Pages', 'E-Commerce', 'SaaS Platforms', 'Brand Identity', 'SEO', 'Digital Marketing', 'React & Next.js', 'Performance']
 
 function Home() {
     useEffect(() => {
         const obs = new IntersectionObserver(entries => {
             entries.forEach((e, i) => {
-                if (e.isIntersecting) setTimeout(() => e.target.classList.add('vis'), i * 90)
+                if (e.isIntersecting) setTimeout(() => e.target.classList.add('vis'), i * 60)
             })
-        }, { threshold: 0.12 })
-        document.querySelectorAll('.fi').forEach(el => obs.observe(el))
+        }, { threshold: 0.05 })
+        document.querySelectorAll('.fi, .fi-left, .fi-right, .fi-scale, .fi-rotate').forEach(el => obs.observe(el))
         return () => obs.disconnect()
     }, [])
 
@@ -74,31 +174,40 @@ function Home() {
                 </div>
             </div>
 
-            {/* ── SERVICES ── */}
+            {/* ══ SERVICES ══ */}
             <section className="sec" id="services">
-                <div className="sec-tag">What We Do</div>
-                <div className="sec-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 'clamp(16px, 3vw, 32px)' }}>
-                    <h2 className="sec-h2" style={{ marginBottom: 0 }}>Services Built<br /><em style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic', fontSize: '0.88em', letterSpacing: 1 }}>for Growth</em></h2>
-                    <p className="sec-sub" style={{ maxWidth: 460, marginBottom: 0 }}>Every service we offer is engineered to deliver measurable results — not just beautiful pixels.</p>
+                <div className="services-header">
+                    <div>
+                        <div className="sec-label fi-left">Our Services</div>
+                        <h2 className="sec-title fi-left">
+                            Six ways we<br /><em>grow your business</em>
+                        </h2>
+                    </div>
+                    <p className="sec-desc fi-right">
+                        Every service is engineered for measurable business results — not vanity metrics.
+                    </p>
                 </div>
-                <div className="grid-3" style={{ marginTop: 'clamp(40px, 6vw, 80px)' }}>
-                    {services.map(({ icon, title, desc }) => (
-                        <div key={title} className="glass-card fi" style={{
-                            padding: 'clamp(24px, 3vw, 36px) clamp(20px, 3vw, 28px)', borderRadius: 24,
-                            transition: 'background .3s, border-color .3s, transform .3s', cursor: 'pointer',
-                        }}
-                            onMouseEnter={e => { e.currentTarget.style.background = 'var(--glass-hv)'; e.currentTarget.style.borderColor = 'var(--border-hv)'; e.currentTarget.style.transform = 'translateY(-8px)'; }}
-                            onMouseLeave={e => { e.currentTarget.style.background = 'var(--glass)'; e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+
+                <div className="services-grid">
+                    {services.map(({ icon, title, desc, tag }, i) => (
+                        <div
+                            key={title}
+                            className="fi-scale service-card-new"
+                            style={{ transitionDelay: `${i * 60}ms` }}
+                            onClick={() => window.open(getWA(`Hi! Interested in ${title}.`), '_blank')}
                         >
-                            <div style={{
-                                width: 'clamp(40px, 5vw, 56px)', height: 'clamp(40px, 5vw, 56px)', borderRadius: 16,
-                                background: 'rgba(255,255,255,0.06)', border: '1px solid var(--border)',
-                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                fontSize: 'clamp(20px, 3vw, 28px)', marginBottom: 'clamp(16px, 3vw, 24px)',
-                            }}>{icon}</div>
-                            <div style={{ fontFamily: "'Outfit',sans-serif", fontSize: 'clamp(16px, 2vw, 22px)', fontWeight: 600, marginBottom: 'clamp(8px, 2vw, 12px)', letterSpacing: 0.2 }}>{title}</div>
-                            <p style={{ fontSize: '14px', color: 'var(--muted)', lineHeight: 1.6 }}>{desc}</p>
-                            <a href="#contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 24, fontSize: 14, color: 'rgba(255,255,255,0.4)', textDecoration: 'none', transition: 'color .2s, gap .2s' }}>Learn more →</a>
+                            <div className="scn-top">
+                                <div className="scn-icon">{icon}</div>
+                                <span className="scn-tag">{tag}</span>
+                            </div>
+                            <h3 className="scn-title">{title}</h3>
+                            <p className="scn-desc">{desc}</p>
+                            <div className="scn-cta">
+                                <span>Inquire now</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -106,110 +215,116 @@ function Home() {
 
             <div className="divider" />
 
-            {/* ── WORK ── */}
+            {/* ══ PORTFOLIO ══ */}
             <section className="sec" id="work">
-                <div className="sec-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 'clamp(24px, 4vw, 40px)', flexWrap: 'wrap', gap: 'clamp(12px, 2vw, 20px)' }}>
+                <div className="port-header">
                     <div>
-                        <div className="sec-tag">Selected Work</div>
-                        <h2 className="sec-h2" style={{ marginBottom: 0 }}>Results That Speak</h2>
+                        <div className="sec-label fi-left">Portfolio</div>
+                        <h2 className="sec-title fi-left" style={{ marginBottom: 8 }}>
+                            Selected <em>Work</em>
+                        </h2>
+                        <p className="sec-desc fi-left" style={{ marginBottom: 0 }}>
+                            A selection of projects we're proud of — each one built to drive results.
+                        </p>
                     </div>
-                    <a href="#contact" className="btn-glass">View All Projects →</a>
+                    <a
+                        href="#contact"
+                        onClick={(e) => scrollTo(e, 'contact')}
+                        className="btn-glass fi-right"
+                        style={{ whiteSpace: 'nowrap', alignSelf: 'flex-end', flexShrink: 0 }}
+                    >
+                        Start a Project →
+                    </a>
                 </div>
-                <div className="grid-12">
-                    {work.map(({ tag, name, bg, span, ratio }) => (
-                        <div key={name} style={{ gridColumn: `span ${span}`, aspectRatio: ratio, borderRadius: 'clamp(12px, 2vw, 20px)', overflow: 'hidden', position: 'relative', cursor: 'pointer', minHeight: 200 }}
-                            onMouseEnter={e => {
-                                e.currentTarget.querySelector('.wi-thumb').style.transform = 'scale(1.04)'
-                                e.currentTarget.querySelector('.wi-overlay').style.opacity = '1'
-                            }}
-                            onMouseLeave={e => {
-                                e.currentTarget.querySelector('.wi-thumb').style.transform = 'scale(1)'
-                                e.currentTarget.querySelector('.wi-overlay').style.opacity = '0'
-                            }}
+
+                {/* Magazine grid */}
+                <div className="port-grid">
+                    {projects.map(({ num, tag, category, name, subtitle, desc, result, resultLabel, image, accent, layout }, idx) => (
+                        <div
+                            key={name}
+                            className={`fi-rotate port-card port-card--${layout}`}
+                            style={{ '--port-accent': accent, transitionDelay: `${idx * 80}ms` }}
+                            onClick={() => window.open(getWA(`Hi! I saw "${name}" (${subtitle}) in your portfolio and want something similar.`), '_blank')}
                         >
-                            <div className="wi-thumb" style={{
-                                position: 'absolute', inset: 0, transition: 'transform .5s ease',
-                                background: bg, border: '1px solid var(--border)',
-                                backdropFilter: 'blur(10px)',
-                            }}>
-                                <div style={{
-                                    position: 'absolute', inset: 0,
-                                    background: 'linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)',
-                                }} />
+                            {/* Image layer */}
+                            <div className="port-img-wrap">
+                                <img src={image} alt={name} className="port-img" />
+                                <div className="port-img-overlay" />
                             </div>
-                            <div className="wi-overlay" style={{
-                                position: 'absolute', inset: 0,
-                                background: 'linear-gradient(to top, rgba(6,6,16,0.85) 0%, transparent 60%)',
-                                display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'clamp(20px, 3vw, 32px)',
-                                opacity: 0, transition: 'opacity .3s',
-                            }}>
-                                <div style={{ fontSize: 'clamp(11px, 1.5vw, 14px)', letterSpacing: 2.5, textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: 8 }}>{tag}</div>
-                                <div style={{ fontFamily: "'Outfit',sans-serif", fontSize: 'clamp(18px, 3vw, 26px)', fontWeight: 600 }}>{name}</div>
+
+                            {/* Top badges */}
+                            <div className="port-top">
+                                <span className="port-num">{num}</span>
+                                <span className="port-tag">{tag}</span>
+                            </div>
+
+                            {/* Bottom info */}
+                            <div className="port-info">
+                                <div className="port-category">{category}</div>
+                                <h3 className="port-name">{name}</h3>
+                                <p className="port-subtitle">{subtitle}</p>
+                                <p className="port-desc">{desc}</p>
+                                <div className="port-result">
+                                    <span className="port-result-val">{result}</span>
+                                    <span className="port-result-lbl">{resultLabel}</span>
+                                </div>
+                                <div className="port-cta">
+                                    <span>Build something similar</span>
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </div>
                             </div>
                         </div>
                     ))}
                 </div>
             </section>
 
-            {/* ── PROCESS ── */}
-            <div style={{ background: 'rgba(255,255,255,0.015)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }} id="process">
+            {/* ══ PROCESS ══ */}
+            <section id="process" style={{ background: 'var(--glass)', borderTop: '1px solid var(--glass-border)', borderBottom: '1px solid var(--glass-border)', backdropFilter: 'blur(12px)' }}>
                 <div className="sec">
-                    <div className="sec-tag">Our Process</div>
-                    <h2 className="sec-h2">From Idea to<br />Launch in 4 Steps</h2>
-                    <div className="grid-4" style={{ marginTop: 'clamp(40px, 6vw, 80px)', position: 'relative' }}>
-                        <div className="process-line" style={{
-                            position: 'absolute', top: 'clamp(24px, 4vw, 32px)', left: '12%', right: '12%', height: 1,
-                            background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.15), rgba(255,255,255,0.15), transparent)',
-                        }} />
-                        {steps.map(({ n, t, d }) => (
-                            <div key={n} className="fi" style={{ textAlign: 'center', padding: '0 clamp(12px, 2vw, 24px)' }}>
-                                <div style={{
-                                    width: 'clamp(48px, 8vw, 64px)', height: 'clamp(48px, 8vw, 64px)', borderRadius: '50%', margin: '0 auto clamp(20px, 4vw, 32px)',
-                                    background: 'var(--glass)', border: '1px solid var(--border)',
-                                    backdropFilter: 'blur(12px)',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    fontFamily: "'Bebas Neue',cursive", fontWeight: 400, fontSize: 'clamp(20px, 3vw, 26px)', letterSpacing: 2,
-                                    position: 'relative',
-                                }}>
-                                    {n}
-                                    <div style={{
-                                        position: 'absolute', inset: -1, borderRadius: '50%',
-                                        background: 'linear-gradient(135deg, rgba(255,255,255,0.2), transparent)',
-                                        pointerEvents: 'none',
-                                    }} />
-                                </div>
-                                <div style={{ fontFamily: "'Outfit',sans-serif", fontSize: 'clamp(16px, 2vw, 22px)', fontWeight: 600, marginBottom: 'clamp(8px, 2vw, 12px)', letterSpacing: 0.3 }}>{t}</div>
-                                <p style={{ fontSize: '14px', color: 'var(--muted)', lineHeight: 1.6 }}>{d}</p>
+                    <div style={{ textAlign: 'center', marginBottom: 'clamp(40px, 6vw, 80px)' }}>
+                        <div className="sec-label fi-scale" style={{ justifyContent: 'center' }}>Our Process</div>
+                        <h2 className="sec-title fi-scale">
+                            From idea to launch<br />
+                            <em style={{ fontStyle: 'italic', fontSize: '0.9em' }}>in four clear steps</em>
+                        </h2>
+                    </div>
+                    <div className="process-grid">
+                        <div className="process-line" />
+                        {steps.map(({ num, title, desc }, i) => (
+                            <div key={num} className="fi-scale process-step" style={{ transitionDelay: `${i * 90}ms` }}>
+                                <div className="process-num">{num}</div>
+                                <h3 className="process-step-title">{title}</h3>
+                                <p className="process-step-desc">{desc}</p>
                             </div>
                         ))}
                     </div>
                 </div>
-            </div>
+            </section>
 
-            {/* ── TESTIMONIALS ── */}
-            <section className="sec">
-                <div className="sec-tag">Social Proof</div>
-                <h2 className="sec-h2">Clients Love<br />Working With Us</h2>
-                <div className="grid-3" style={{ marginTop: 'clamp(40px, 6vw, 80px)' }}>
-                    {testimonials.map(({ av, name, role, text }) => (
-                        <div key={name} className="glass-card fi" style={{ padding: 'clamp(24px, 3vw, 36px)', borderRadius: 24, position: 'relative', overflow: 'hidden' }}>
-                            <div style={{
-                                position: 'absolute', top: 'clamp(8px, 2vw, 12px)', right: 'clamp(16px, 3vw, 24px)',
-                                fontSize: 'clamp(60px, 12vw, 100px)', lineHeight: 1, fontFamily: "'Bebas Neue',cursive",
-                                color: 'rgba(255,255,255,0.03)', pointerEvents: 'none',
-                            }}>"</div>
-                            <div style={{ fontSize: 'clamp(12px, 1.5vw, 16px)', letterSpacing: 4, color: 'rgba(255,255,255,0.6)', marginBottom: 'clamp(12px, 3vw, 24px)' }}>★ ★ ★ ★ ★</div>
-                            <p style={{ fontSize: '14px', lineHeight: 1.6, color: 'rgba(255,255,255,0.7)', marginBottom: 'clamp(20px, 4vw, 32px)' }}>{text}</p>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(12px, 2vw, 16px)' }}>
-                                <div style={{
-                                    width: 'clamp(40px, 6vw, 48px)', height: 'clamp(40px, 6vw, 48px)', borderRadius: '50%',
-                                    background: 'rgba(255,255,255,0.08)', border: '1px solid var(--border)',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                                    fontFamily: "'Bebas Neue',cursive", fontWeight: 700, fontSize: '14px', color: 'var(--muted)',
-                                }}>{av}</div>
+            {/* ══ TESTIMONIALS ══ */}
+            <section className="sec" id="testimonials">
+                <div style={{ textAlign: 'center', marginBottom: 'clamp(40px, 6vw, 80px)' }}>
+                    <div className="sec-label fi-scale" style={{ justifyContent: 'center' }}>Client Stories</div>
+                    <h2 className="sec-title fi-scale">
+                        Don't take our word for it —<br />
+                        <em style={{ fontStyle: 'italic' }}>take theirs</em>
+                    </h2>
+                </div>
+                <div className="testimonials-grid">
+                    {testimonials.map(({ initials, name, role, text }, i) => (
+                        <div key={name} className="fi-left testimonial-card" style={{ transitionDelay: `${i * 80}ms` }}>
+                            <div className="testimonial-quote">"</div>
+                            <div style={{ display: 'flex', gap: 4, marginBottom: 20 }}>
+                                {[1,2,3,4,5].map(n => (
+                                    <svg key={n} width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                ))}
+                            </div>
+                            <p className="testimonial-text">"{text}"</p>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                                <div className="testimonial-avatar">{initials}</div>
                                 <div>
-                                    <div style={{ fontSize: '15px', fontWeight: 600, letterSpacing: 0.2 }}>{name}</div>
-                                    <div style={{ fontSize: '13px', color: 'var(--muted)' }}>{role}</div>
+                                    <div className="testimonial-name">{name}</div>
+                                    <div className="testimonial-role">{role}</div>
                                 </div>
                             </div>
                         </div>
@@ -219,64 +334,69 @@ function Home() {
 
             <div className="divider" />
 
-            {/* ── PRICING ── */}
+            {/* ══ PRICING ══ */}
             <section className="sec" id="pricing">
-                <div className="sec-tag">Investment</div>
-                <h2 className="sec-h2">Transparent Pricing,<br />Real Results</h2>
-                <div className="grid-3" style={{ marginTop: 'clamp(40px, 6vw, 80px)' }}>
-                    {plans.map(({ tier, price, sub, featured, badge, features, cta }) => (
-                        <div key={tier} className="glass-card fi" style={{
-                            padding: '32px clamp(20px, 3vw, 32px)', borderRadius: 24, position: 'relative', overflow: 'hidden',
-                            transition: 'transform .3s',
-                            display: 'flex', flexDirection: 'column',
-                            ...(featured ? {
-                                background: 'rgba(255,255,255,0.07)',
-                                border: '1px solid rgba(255,255,255,0.2)',
-                                boxShadow: '0 0 0 1px rgba(255,255,255,0.1), 0 40px 80px rgba(0,0,0,0.3)',
-                            } : {}),
-                        }}
-                            onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-8px)'}
-                            onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
-                        >
-                            {badge && (
-                                <div style={{
-                                    position: 'absolute', top: '16px', right: '16px',
-                                    padding: '6px 12px', borderRadius: 100,
-                                    background: 'rgba(255,255,255,0.1)', border: '1px solid var(--border)',
-                                    fontSize: '11px', letterSpacing: 1.5, color: 'var(--muted)',
-                                }}>{badge}</div>
-                            )}
-                            <div style={{ fontSize: '13px', letterSpacing: 2.5, textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 20 }}>{tier}</div>
-                            <div style={{ fontFamily: "'Bebas Neue',cursive", fontSize: 'clamp(40px, 6vw, 56px)', fontWeight: 400, letterSpacing: 2, lineHeight: 1, marginBottom: 8 }}>
-                                {price.startsWith('$') ? <><sup style={{ fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 600, opacity: 0.6 }}>$</sup>{price.slice(1)}</> : price}
+                <div style={{ textAlign: 'center', marginBottom: 'clamp(40px, 6vw, 80px)' }}>
+                    <div className="sec-label fi-scale" style={{ justifyContent: 'center' }}>Pricing</div>
+                    <h2 className="sec-title fi-scale">
+                        Transparent, honest<br />
+                        <em style={{ fontStyle: 'italic' }}>pricing for real growth</em>
+                    </h2>
+                    <p className="sec-desc fi-scale" style={{ margin: '16px auto 0' }}>
+                        No hidden fees. No surprises. Pick a plan or talk to us for a fully custom quote.
+                    </p>
+                </div>
+                <div className="pricing-grid">
+                    {plans.map(({ tier, price, sub, featured, features, msg }, i) => (
+                        <div key={tier} className={`fi-scale pricing-card${featured ? ' featured' : ''}`} style={{ transitionDelay: `${i * 70}ms` }}>
+                            {featured && <div className="pricing-badge">Most Popular</div>}
+                            <div style={{ paddingTop: featured ? 16 : 0 }}>
+                                <div className="pricing-tier">{tier}</div>
+                                <div className="pricing-price">{price}</div>
+                                <div className="pricing-sub">{sub}</div>
                             </div>
-                            <div style={{ fontSize: '14px', color: 'var(--muted)', marginBottom: 'clamp(24px, 5vw, 36px)' }}>{sub}</div>
-                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: 'clamp(24px, 5vw, 36px)', flexGrow: 1 }}>
+                            <ul className="pricing-features">
                                 {features.map(f => (
-                                    <li key={f} style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                                        <span style={{ fontWeight: 700, fontSize: '14px', color: 'rgba(255,255,255,0.5)', flexShrink: 0, marginTop: 2 }}>✓</span>
+                                    <li key={f}>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <circle cx="8" cy="8" r="7.5" stroke="rgba(56,189,248,0.25)" />
+                                            <path d="M5 8l2 2 4-4" stroke="#38BDF8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                        </svg>
                                         <span>{f}</span>
                                     </li>
                                 ))}
                             </ul>
-                            <a href="#contact" style={{
-                                width: '100%', padding: '14px 20px', borderRadius: 100, cursor: 'pointer',
-                                display: 'block', textAlign: 'center', fontFamily: "'Outfit',sans-serif",
-                                fontSize: '14px', textDecoration: 'none', transition: 'background .2s, border-color .2s',
-                                ...(featured ? {
-                                    background: 'rgba(255,255,255,0.95)', color: '#080818', border: 'none', fontWeight: 600,
-                                } : {
-                                    background: 'var(--glass)', border: '1px solid var(--border)', color: 'var(--white)', fontWeight: 500,
-                                    backdropFilter: 'blur(10px)',
-                                }),
-                            }}
-                                onMouseEnter={e => { e.currentTarget.style.background = featured ? '#fff' : 'var(--glass-hv)'; }}
-                                onMouseLeave={e => { e.currentTarget.style.background = featured ? 'rgba(255,255,255,0.95)' : 'var(--glass)'; }}
-                            >{cta}</a>
+                            <a
+                                href={getWA(msg)} target="_blank" rel="noopener noreferrer"
+                                className={`pricing-cta${featured ? ' featured-cta' : ''}`}
+                            >
+                                Get Started on WhatsApp
+                            </a>
                         </div>
                     ))}
                 </div>
             </section>
+
+            {/* ══ CTA BAND ══ */}
+            <div className="cta-band-wrap">
+                <div className="fi-scale cta-band">
+                    <div className="cta-band-glow" />
+                    <div style={{ position: 'relative', zIndex: 1 }}>
+                        <p className="cta-band-label">Ready to start?</p>
+                        <h2 className="cta-band-title">
+                            Let's build something<br />
+                            <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>extraordinary together</em>
+                        </h2>
+                        <p className="cta-band-desc">
+                            Book a free strategy call. We'll map out exactly what you need to grow — no strings attached.
+                        </p>
+                        <a href={getWA("Hi! I'd like to book a free strategy call.")} target="_blank" rel="noopener noreferrer" className="btn-accent cta-band-btn">
+                            Book a Free Call
+                            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

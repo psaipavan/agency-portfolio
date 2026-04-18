@@ -1,93 +1,222 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect, useCallback, useRef } from 'react'
+import { useTheme } from '../context/ThemeContext'
+
+const WHATSAPP_NUMBER = '919876543210'
+const getWhatsAppUrl = (msg) =>
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`
+
+const smoothScroll = (id) => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
+    const [active, setActive] = useState('')
+    const [scrolled, setScrolled] = useState(false)
+    const [mountStep, setMountStep] = useState(0) // 0=hidden, 1=logo, 2=links, 3=right
+    const { theme, toggleTheme } = useTheme()
 
-    // Responsive padding values
-    const navPadding = 'clamp(10px, 2vw, 24px)'
-    const logoFontSize = 'clamp(24px, 3vw, 28px)'
-    const linkFontSize = '14px'
+    const links = [
+        ['services', 'What We Do'],
+        ['work', 'Case Studies'],
+        ['process', 'Our Approach'],
+        ['testimonials', 'Stories'],
+        ['pricing', 'Plans'],
+    ]
+
+    /* ── Staggered mount animation ── */
+    useEffect(() => {
+        const t1 = setTimeout(() => setMountStep(1), 200)   // logo slides in
+        const t2 = setTimeout(() => setMountStep(2), 450)   // links slide in
+        const t3 = setTimeout(() => setMountStep(3), 650)   // right side slides in
+        return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3) }
+    }, [])
+
+    /* ── Scroll tracking ── */
+    useEffect(() => {
+        let ticking = false
+        const onScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    setScrolled(window.scrollY > 40)
+                    ticking = false
+                })
+                ticking = true
+            }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true })
+        return () => window.removeEventListener('scroll', onScroll)
+    }, [])
+
+    /* ── Active section via IntersectionObserver ── */
+    useEffect(() => {
+        const obs = []
+        links.forEach(([id]) => {
+            const el = document.getElementById(id)
+            if (!el) return
+            const o = new IntersectionObserver(
+                ([e]) => { if (e.isIntersecting) setActive(id) },
+                { threshold: 0.3, rootMargin: '-80px 0px -40% 0px' }
+            )
+            o.observe(el)
+            obs.push(o)
+        })
+        return () => obs.forEach(o => o.disconnect())
+    }, [])
+
+    /* ── Body scroll lock on mobile open ── */
+    useEffect(() => {
+        document.body.style.overflow = isOpen ? 'hidden' : ''
+        return () => { document.body.style.overflow = '' }
+    }, [isOpen])
+
+    const handleNavClick = useCallback((e, id) => {
+        e.preventDefault()
+        setIsOpen(false)
+        setTimeout(() => smoothScroll(id), isOpen ? 360 : 0)
+    }, [isOpen])
+
+    const handleLogoClick = useCallback((e) => {
+        e.preventDefault()
+        setIsOpen(false)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, [])
+
+    /* ── Shared transition for mount animation ── */
+    const mountTransition = 'opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1)'
 
     return (
         <>
-            <nav className="nexus-nav" style={{
-                position: 'fixed', top: 0, left: 0, right: 0, zIndex: 500,
-                padding: 'clamp(12px, 2vw, 16px) clamp(16px, 4vw, 32px)',
-                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                background: 'rgba(6,6,16,0.65)',
-                backdropFilter: 'blur(24px) saturate(160%)',
-                WebkitBackdropFilter: 'blur(24px) saturate(160%)',
-                borderBottom: '1px solid var(--border)',
-            }}>
-                <div style={{
-                    fontFamily: "'Bebas Neue', cursive", fontSize: 'clamp(24px, 3vw, 28px)', fontWeight: 400,
-                    letterSpacing: 4, color: 'var(--white)', zIndex: 501, position: 'relative'
-                }}>
-                    NEX<span style={{ color: 'rgba(255,255,255,0.45)' }}>US</span>
-                </div>
+            <nav className={`gw-nav${scrolled ? ' scrolled' : ''}`}>
 
-                {/* Desktop Links */}
+                {/* ── Logo — slides down ── */}
+                <a
+                    href="#"
+                    onClick={handleLogoClick}
+                    className="nav-brand"
+                    style={{
+                        opacity: mountStep >= 1 ? 1 : 0,
+                        transform: mountStep >= 1 ? 'translateY(0)' : 'translateY(-20px)',
+                        transition: mountTransition,
+                    }}
+                >
+                    <span className="nav-brand-dot" />
+                    GoodWill
+                </a>
+
+                {/* ── Desktop Links — each stagger individually ── */}
                 <ul className="nav-links">
-                    {[['#services', 'Services'], ['#work', 'Work'], ['#process', 'Process'], ['#pricing', 'Pricing']].map(([href, label]) => (
-                        <li key={href}>
-                            <a href={href} style={{
-                                color: 'var(--muted)', textDecoration: 'none', fontSize: linkFontSize, fontWeight: 500,
-                                transition: 'color .2s',
+                    {links.map(([id, label], i) => (
+                        <li
+                            key={id}
+                            style={{
+                                opacity: mountStep >= 2 ? 1 : 0,
+                                transform: mountStep >= 2 ? 'translateY(0)' : 'translateY(-16px)',
+                                transition: `opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1) ${i * 60}ms, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) ${i * 60}ms`,
                             }}
-                                onMouseEnter={e => e.target.style.color = 'var(--white)'}
-                                onMouseLeave={e => e.target.style.color = 'var(--muted)'}
-                            >{label}</a>
+                        >
+                            <a
+                                href={`#${id}`}
+                                className={active === id ? 'active' : ''}
+                                onClick={(e) => handleNavClick(e, id)}
+                            >
+                                {label}
+                            </a>
                         </li>
                     ))}
                 </ul>
 
-                {/* Desktop CTA */}
-                <a href="#contact" className="nav-desktop-cta" style={{
-                    padding: 'clamp(10px, 1.5vw, 12px) clamp(16px, 3vw, 24px)', borderRadius: 100,
-                    background: 'var(--glass-md)', border: '1px solid var(--border)',
-                    color: 'var(--white)', fontSize: '13px', fontWeight: 600,
-                    textDecoration: 'none', backdropFilter: 'blur(10px)',
-                    transition: 'background .2s, border-color .2s, transform .2s',
-                    whiteSpace: 'nowrap',
-                }}
-                    onMouseEnter={e => { e.currentTarget.style.background = 'var(--glass-hv)'; e.currentTarget.style.borderColor = 'var(--border-hv)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = 'var(--glass-md)'; e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.transform = 'translateY(0)'; }}
-                >Start a Project →</a>
-
-                {/* Mobile Hamburger */}
-                <button
-                    className="nav-mobile-btn"
-                    onClick={() => setIsOpen(!isOpen)}
-                    style={{ zIndex: 501, position: 'relative', fontSize: 'clamp(18px, 4vw, 22px)' }}
+                {/* ── Right Controls — slides in from right ── */}
+                <div
+                    className="nav-right"
+                    style={{
+                        opacity: mountStep >= 3 ? 1 : 0,
+                        transform: mountStep >= 3 ? 'translateX(0)' : 'translateX(20px)',
+                        transition: mountTransition,
+                    }}
                 >
-                    {isOpen ? '✕' : '☰'}
-                </button>
+                    <button
+                        className="nav-theme-btn"
+                        onClick={toggleTheme}
+                        aria-label="Toggle theme"
+                    >
+                        {theme === 'dark' ? (
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <circle cx="12" cy="12" r="5"/>
+                                <line x1="12" y1="1" x2="12" y2="3"/>
+                                <line x1="12" y1="21" x2="12" y2="23"/>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                <line x1="1" y1="12" x2="3" y2="12"/>
+                                <line x1="21" y1="12" x2="23" y2="12"/>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                            </svg>
+                        ) : (
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                            </svg>
+                        )}
+                    </button>
+
+                    <a
+                        href={getWhatsAppUrl("Hi! I'd like to discuss a project with Good Will.")}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="nav-cta"
+                    >
+                        Get in Touch
+                        <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+
+                    <button
+                        className="nav-mobile-btn"
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-label="Toggle menu"
+                    >
+                        <span className={`hamburger${isOpen ? ' open' : ''}`}>
+                            <span />
+                            <span />
+                            <span />
+                        </span>
+                    </button>
+                </div>
             </nav>
 
-            {/* Mobile Menu Overlay */}
-            <div style={{
-                position: 'fixed', inset: 0, zIndex: 499,
-                background: 'var(--bg)',
-                display: 'flex', flexDirection: 'column',
-                alignItems: 'center', justifyContent: 'center', gap: 40,
-                opacity: isOpen ? 1 : 0,
-                pointerEvents: isOpen ? 'auto' : 'none',
-                transition: 'opacity 0.3s ease',
-            }}>
-                {[['#services', 'Services'], ['#work', 'Work'], ['#process', 'Process'], ['#pricing', 'Pricing']].map(([href, label]) => (
-                    <a key={href} href={href} onClick={() => setIsOpen(false)} style={{
-                        fontSize: 24, color: 'var(--white)', fontFamily: "'Outfit', sans-serif",
-                        textDecoration: 'none', letterSpacing: 2
-                    }}>
+            {/* ── Mobile Menu ── */}
+            <div className={`mobile-menu${isOpen ? ' open' : ''}`}>
+                {links.map(([id, label], i) => (
+                    <a
+                        key={id}
+                        href={`#${id}`}
+                        onClick={(e) => handleNavClick(e, id)}
+                        style={{
+                            color: active === id ? 'var(--accent)' : 'var(--text-heading)',
+                            opacity: isOpen ? 1 : 0,
+                            transform: isOpen ? 'translateX(0)' : 'translateX(-24px)',
+                            transition: `opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1) ${i * 70}ms, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) ${i * 70}ms`,
+                        }}
+                    >
                         {label}
                     </a>
                 ))}
-                <a href="#contact" onClick={() => setIsOpen(false)} style={{
-                    padding: '14px 32px', borderRadius: 100, background: 'var(--white)', color: '#080818',
-                    fontSize: 16, fontWeight: 600, textDecoration: 'none', marginTop: 20
-                }}>
-                    Start a Project
+                <a
+                    href={getWhatsAppUrl("Hi! I'd like to discuss a project.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-accent"
+                    onClick={() => setIsOpen(false)}
+                    style={{
+                        marginTop: 12,
+                        opacity: isOpen ? 1 : 0,
+                        transform: isOpen ? 'translateY(0)' : 'translateY(16px)',
+                        transition: `opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1) ${links.length * 70}ms, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) ${links.length * 70}ms`,
+                    }}
+                >
+                    Get in Touch
                 </a>
             </div>
         </>

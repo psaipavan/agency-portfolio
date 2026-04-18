@@ -1,111 +1,205 @@
+/* ═══════════════════════════════════════════
+   CONFIG
+   ═══════════════════════════════════════════ */
+const WHATSAPP_NUMBER = '919876543210'
+const getWhatsAppUrl = (message) =>
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+
+/* Smooth scroll helper */
+const scrollTo = (e, id) => {
+    e.preventDefault()
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
 function Footer() {
     return (
         <>
-            {/* CTA Band */}
-            <div id="contact" className="cta-band" style={{
-                margin: '0 clamp(16px, 4vw, 40px) clamp(40px, 6vw, 80px)', borderRadius: 24, padding: 'clamp(32px, 5vw, 64px) clamp(20px, 4vw, 48px)',
-                background: 'var(--glass)', border: '1px solid var(--border)',
-                backdropFilter: 'blur(30px) saturate(160%)',
-                textAlign: 'center', position: 'relative', overflow: 'hidden', zIndex: 1,
-                boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.06), 0 40px 80px rgba(0,0,0,0.3)',
-            }}>
-                <div style={{
-                    position: 'absolute', inset: 0,
-                    background: 'radial-gradient(ellipse 50% 70% at 25% 50%, rgba(255,255,255,0.03) 0%, transparent 70%), radial-gradient(ellipse 50% 70% at 75% 50%, rgba(255,255,255,0.02) 0%, transparent 70%)',
-                    pointerEvents: 'none',
-                }} />
-                <h2 style={{
-                    fontFamily: "'Bebas Neue', cursive",
-                    fontSize: 'clamp(32px, 6vw, 56px)', fontWeight: 400,
-                    letterSpacing: 2, marginBottom: 'clamp(16px, 3vw, 24px)', position: 'relative',
-                }}>
-                    Ready to Build<br />
-                    <em style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic', letterSpacing: 1, fontSize: '0.88em' }}>Something</em> Great?
-                </h2>
-                <p style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: 'var(--muted)', marginBottom: 'clamp(24px, 4vw, 40px)', fontWeight: 300, position: 'relative' }}>
-                    Tell us about your project. We respond within 24 hours.
-                </p>
-                <div style={{ display: 'flex', gap: 'clamp(12px, 2vw, 16px)', justifyContent: 'center', flexWrap: 'wrap', position: 'relative' }}>
-                    <a href="mailto:hello@nexus.agency" className="btn-solid">Start Your Project →</a>
-                    <a href="#" className="btn-glass">Schedule a Call</a>
+            {/* ────── CTA BAND ────── */}
+            <div id="contact" className="cta-band">
+                <div style={{ position: 'relative', zIndex: 1 }}>
+                    <div className="sec-label" style={{ justifyContent: 'center', marginBottom: 20 }}>
+                        Start a Project
+                    </div>
+                    <h2 style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: 'clamp(32px, 5.5vw, 56px)',
+                        fontWeight: 800,
+                        color: 'var(--text-heading)',
+                        marginBottom: 16, lineHeight: 1.1,
+                    }}>
+                        Ready to Build Something{' '}
+                        <em style={{
+                            fontStyle: 'italic',
+                            background: 'var(--accent-gradient)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                        }}>Great</em>?
+                    </h2>
+                    <p style={{
+                        fontSize: 'clamp(15px, 2vw, 18px)',
+                        color: 'var(--text-sub)',
+                        maxWidth: 460, margin: '0 auto',
+                        lineHeight: 1.75, marginBottom: 36,
+                    }}>
+                        Share your vision with us. We'll respond within 24 hours
+                        with a free consultation and project estimate.
+                    </p>
+                    <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
+                        <a
+                            href={getWhatsAppUrl("Hi! I'd like to start a new project with Good Will Agency. Here are my requirements:\n\n")}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-whatsapp"
+                            style={{ gap: 8 }}
+                        >
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                            Start on WhatsApp →
+                        </a>
+                        <a
+                            href={getWhatsAppUrl("Hi! I'd like to schedule a call with Good Will Agency to discuss my project. When are you available?")}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-glass"
+                        >
+                            Schedule a Call
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            {/* Footer */}
+            {/* ────── FOOTER ────── */}
             <footer style={{
-                borderTop: '1px solid var(--border)', padding: 'clamp(32px, 5vw, 64px) clamp(16px, 4vw, 32px) 32px',
-                maxWidth: 1280, margin: '0 auto', position: 'relative', zIndex: 1,
+                borderTop: '1px solid var(--glass-border)',
+                padding: 'clamp(40px, 6vw, 80px) clamp(20px, 5vw, 56px) 32px',
+                maxWidth: 1320, margin: '0 auto',
+                position: 'relative', zIndex: 1,
             }}>
-                <div className="grid-footer" style={{ marginBottom: 'clamp(32px, 5vw, 48px)' }}>
+                <div className="grid-footer" style={{ marginBottom: 'clamp(36px, 5vw, 56px)' }}>
                     {/* Brand */}
                     <div>
-                        <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 'clamp(24px, 3vw, 32px)', fontWeight: 400, letterSpacing: 4, marginBottom: 16 }}>
-                            NEX<span style={{ color: 'var(--muted)' }}>US</span>
-                        </div>
-                        <p style={{ fontSize: '14px', color: 'var(--muted)', lineHeight: 1.6, maxWidth: 360 }}>
-                            A digital agency building websites that drive real business results. Based in Hyderabad, working globally.
+                        <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }} style={{
+                            fontFamily: "'Inter', sans-serif",
+                            fontSize: 22, fontWeight: 700, display: 'inline-flex',
+                            alignItems: 'center', gap: 10,
+                            color: 'var(--text-heading)', marginBottom: 14,
+                        }}>
+                            <span style={{
+                                width: 28, height: 28, borderRadius: 8,
+                                background: 'var(--accent-gradient)',
+                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                fontSize: 13, fontWeight: 800, color: '#fff',
+                                fontFamily: "'Inter', sans-serif",
+                            }}>G</span>
+                            GoodWill
+                        </a>
+                        <p style={{
+                            fontSize: 14, color: 'var(--text-sub)',
+                            lineHeight: 1.7, maxWidth: 300, marginTop: 14,
+                        }}>
+                            A digital agency building websites and brands that drive real business results.
+                            Based in Hyderabad, working globally.
                         </p>
                     </div>
 
-                    {/* Services */}
-                    <div>
-                        <h4 style={{ fontSize: '12px', letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 'clamp(12px, 2vw, 20px)' }}>Services</h4>
-                        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            {['Web Design', 'Development', 'E-Commerce', 'Landing Pages'].map(s => (
-                                <li key={s}><a href="#services" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.6)', transition: 'color .2s' }}
-                                    onMouseEnter={e => e.target.style.color = 'var(--white)'}
-                                    onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.6)'}
-                                >{s}</a></li>
+                    <div className="footer-col">
+                        <h4>Services</h4>
+                        <ul style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                            {[
+                                { label: 'UI/UX Design', msg: "Hi! I'm interested in your UI/UX Design services." },
+                                { label: 'Web Development', msg: "Hi! I'm interested in your Web Development services." },
+                                { label: 'E-Commerce', msg: "Hi! I'm interested in your E-Commerce services." },
+                                { label: 'SEO & Growth', msg: "Hi! I'm interested in your SEO & Growth services." },
+                                { label: 'Brand Identity', msg: "Hi! I'm interested in your Brand Identity services." },
+                            ].map(({ label, msg }) => (
+                                <li key={label}>
+                                    <a
+                                        href={getWhatsAppUrl(msg)}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {label}
+                                    </a>
+                                </li>
                             ))}
                         </ul>
                     </div>
 
-                    {/* Company */}
-                    <div>
-                        <h4 style={{ fontSize: '12px', letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 'clamp(12px, 2vw, 20px)' }}>Company</h4>
-                        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            {['About', 'Work', 'Process', 'Careers'].map(s => (
-                                <li key={s}><a href="#" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.6)', transition: 'color .2s' }}
-                                    onMouseEnter={e => e.target.style.color = 'var(--white)'}
-                                    onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.6)'}
-                                >{s}</a></li>
+                    <div className="footer-col">
+                        <h4>Company</h4>
+                        <ul style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                            {[
+                                { label: 'Services', id: 'services' },
+                                { label: 'Portfolio', id: 'work' },
+                                { label: 'Process', id: 'process' },
+                                { label: 'Pricing', id: 'pricing' },
+                                { label: 'Contact', id: 'contact' },
+                            ].map(({ label, id }) => (
+                                <li key={label}>
+                                    <a
+                                        href={`#${id}`}
+                                        onClick={(e) => scrollTo(e, id)}
+                                    >
+                                        {label}
+                                    </a>
+                                </li>
                             ))}
                         </ul>
                     </div>
 
-                    {/* Contact */}
-                    <div>
-                        <h4 style={{ fontSize: '12px', letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 'clamp(12px, 2vw, 20px)' }}>Contact</h4>
-                        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            {['hello@nexus.agency', '+91 98765 43210', 'Hyderabad, India'].map(s => (
-                                <li key={s}><a href="mailto:hello@nexus.agency" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.6)', transition: 'color .2s' }}
-                                    onMouseEnter={e => e.target.style.color = 'var(--white)'}
-                                    onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.6)'}
-                                >{s}</a></li>
-                            ))}
+                    <div className="footer-col">
+                        <h4>Contact</h4>
+                        <ul style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                            <li><a href="mailto:hello@goodwillagency.com">hello@goodwillagency.com</a></li>
+                            <li>
+                                <a
+                                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    +91 98765 43210
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://maps.google.com/?q=Hyderabad,India"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Hyderabad, India
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
 
                 {/* Bottom bar */}
-                <div className="foot-bottom" style={{
+                <div className="foot-bar" style={{
                     display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                    borderTop: '1px solid var(--border)', paddingTop: 'clamp(20px, 3vw, 32px)',
-                    fontSize: '13px', color: 'var(--muted)',
+                    borderTop: '1px solid var(--glass-border)',
+                    paddingTop: 'clamp(20px, 3vw, 28px)',
+                    fontSize: 13, color: 'var(--text-muted)',
                 }}>
-                    <span>© 2025 NEXUS Agency. All rights reserved.</span>
-                    <div className="socials" style={{ display: 'flex', gap: '12px' }}>
-                        {['𝕏', 'in', 'ig', 'be'].map(s => (
-                            <a key={s} href="#" style={{
-                                width: '36px', height: '36px', borderRadius: '50%',
-                                background: 'var(--glass)', border: '1px solid var(--border)',
-                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                fontSize: 16, color: 'var(--muted)', textDecoration: 'none',
-                                transition: 'background .2s, color .2s, border-color .2s',
-                            }}
-                                onMouseEnter={e => { e.currentTarget.style.background = 'var(--glass-hv)'; e.currentTarget.style.borderColor = 'var(--border-hv)'; e.currentTarget.style.color = 'var(--white)'; }}
-                                onMouseLeave={e => { e.currentTarget.style.background = 'var(--glass)'; e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--muted)'; }}
-                            >{s}</a>
+                    <span>© 2026 Good Will Agency. All rights reserved.</span>
+                    <div className="social-row" style={{ display: 'flex', gap: 8 }}>
+                        {[
+                            { label: '𝕏', url: 'https://twitter.com/goodwillagency', title: 'Twitter / X' },
+                            { label: 'in', url: 'https://linkedin.com/company/goodwillagency', title: 'LinkedIn' },
+                            { label: 'ig', url: 'https://instagram.com/goodwillagency', title: 'Instagram' },
+                            { label: 'wa', url: `https://wa.me/${WHATSAPP_NUMBER}`, title: 'WhatsApp' },
+                        ].map(({ label, url, title }) => (
+                            <a
+                                key={label}
+                                href={url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="social-btn"
+                                title={title}
+                            >
+                                {label}
+                            </a>
                         ))}
                     </div>
                 </div>
