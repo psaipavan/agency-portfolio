@@ -351,6 +351,7 @@ body::before {
 }
 
 .btn-glass {
+.btn-glass {
   display: inline-flex;
   align-items: center;
   gap: clamp(7px, 1vw, 10px);
@@ -609,6 +610,13 @@ body::before {
   padding: 4px;
 }
 
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: var(--glass-border);
+  margin: 0 clamp(16px, 4vw, 80px);
+}
+
 /* ─────────────── MOBILE OVERLAY ─────────────── */
 .mobile-menu {
   position: fixed;
@@ -775,10 +783,22 @@ body::before {
   to { transform: scaleY(1); }
 }
 
+<<<<<<< HEAD
 @keyframes float-slow {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   33% { transform: translateY(-12px) rotate(1deg); }
   66% { transform: translateY(6px) rotate(-0.5deg); }
+=======
+/* ==============================================
+   RESPONSIVE UTILITIES & GRID CLASSES
+   ============================================== */
+
+/* Layout Grids */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(30px, 6vw, 80px);
+>>>>>>> b28ec3b571808e388c2b072db572632a5fc4e164
 }
 
 @keyframes float-slow-alt {
