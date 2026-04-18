@@ -65,57 +65,57 @@
 
 /* ───────────────── LIGHT THEME ───────────────── */
 [data-theme="light"] {
-  /* ► Pure white canvas */
-  --bg: #ffffff;
-  --bg-raised: #f5f5f5;
-  --surface: #ececec;
+  /* ► Warm off-white canvas — feels airy, not harsh */
+  --bg: #F5F7FA;
+  --bg-raised: #EAECF0;
+  --surface: #DDE0E7;
 
-  /* ► Glassmorphism — white-on-white with subtle borders */
-  --glass: rgba(255, 255, 255, 0.70);
-  --glass-md: rgba(255, 255, 255, 0.85);
-  --glass-strong: rgba(255, 255, 255, 0.96);
-  --glass-border: rgba(0, 0, 0, 0.07);
-  --glass-border-hv: rgba(56, 189, 248, 0.40);
-  --glass-glow: 0 0 40px rgba(56, 189, 248, 0.06);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  --glass-inner: inset 0 1px 0 rgba(255, 255, 255, 1);
+  /* ► Glassmorphism — frosted white panels with real depth */
+  --glass: rgba(255, 255, 255, 0.80);
+  --glass-md: rgba(255, 255, 255, 0.92);
+  --glass-strong: rgba(255, 255, 255, 0.98);
+  --glass-border: rgba(0, 0, 0, 0.09);
+  --glass-border-hv: rgba(2, 132, 199, 0.40);
+  --glass-glow: 0 0 40px rgba(2, 132, 199, 0.07);
+  --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.09), 0 1px 3px rgba(0, 0, 0, 0.05);
+  --glass-inner: inset 0 1px 0 rgba(255, 255, 255, 0.95);
 
-  /* ► Text — black with opacity steps */
-  --text: rgba(0, 0, 0, 0.75);
-  --text-sub: rgba(0, 0, 0, 0.50);
-  --text-muted: rgba(0, 0, 0, 0.32);
-  --text-heading: #000000;
+  /* ► Text — rich charcoals (not faded black, actual readable tones) */
+  --text: #374151;
+  --text-sub: #6B7280;
+  --text-muted: #9CA3AF;
+  --text-heading: #111827;
 
-  /* ► Accent — Sky Blue (slightly deeper for contrast on white) */
+  /* ► Accent — deep sky blue (pops on light bg) */
   --accent: #0284C7;
   --accent-secondary: #0369A1;
   --accent-gradient: linear-gradient(135deg, #38BDF8 0%, #0284C7 100%);
-  --accent-glow: rgba(2, 132, 199, 0.14);
-  --accent-glow-strong: rgba(2, 132, 199, 0.26);
+  --accent-glow: rgba(2, 132, 199, 0.15);
+  --accent-glow-strong: rgba(2, 132, 199, 0.28);
 
   /* ► Navbar */
-  --nav-scrolled-bg: rgba(255, 255, 255, 0.88);
-  --nav-scrolled-border: rgba(0, 0, 0, 0.07);
-  --nav-link-color: rgba(0, 0, 0, 0.55);
-  --nav-brand-color: #000000;
+  --nav-scrolled-bg: rgba(245, 247, 250, 0.94);
+  --nav-scrolled-border: rgba(0, 0, 0, 0.08);
+  --nav-link-color: #6B7280;
+  --nav-brand-color: #111827;
 
-  /* ► Background blobs (very subtle on white) */
-  --blob-1: rgba(56, 189, 248, 0.06);
-  --blob-2: rgba(14, 165, 233, 0.04);
-  --blob-3: rgba(56, 189, 248, 0.03);
+  /* ► Background blobs */
+  --blob-1: rgba(56, 189, 248, 0.07);
+  --blob-2: rgba(14, 165, 233, 0.05);
+  --blob-3: rgba(56, 189, 248, 0.04);
   --blob-4: rgba(2, 132, 199, 0.03);
 
   /* ► Inputs */
-  --input-bg: rgba(0, 0, 0, 0.03);
-  --input-border: rgba(0, 0, 0, 0.10);
+  --input-bg: rgba(0, 0, 0, 0.04);
+  --input-border: rgba(0, 0, 0, 0.11);
 
   /* ► Scrollbar */
-  --sb-track: #fff;
-  --sb-thumb: rgba(0, 0, 0, 0.12);
+  --sb-track: #F5F7FA;
+  --sb-thumb: rgba(0, 0, 0, 0.14);
 
-  /* ► Toggle */
-  --toggle-track: rgba(0, 0, 0, 0.08);
-  --toggle-knob: #000000;
+  /* ► Toggle — blue knob so it's clearly readable */
+  --toggle-track: rgba(0, 0, 0, 0.09);
+  --toggle-knob: #0284C7;
 
   /* ► WhatsApp */
   --whatsapp: #25d366;
@@ -625,19 +625,32 @@ body::before {
   height: 38px;
   border-radius: 50%;
   background: transparent;
-  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.50);
   transition: all 0.35s ease;
+}
+
+/* ── Always visible in light mode (not just on hover) ── */
+[data-theme="light"] .nav-theme-btn {
+  border: 1.5px solid rgba(0, 0, 0, 0.16);
+  color: #6B7280;
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .nav-theme-btn:hover {
   border-color: #38BDF8;
   color: #38BDF8;
   transform: rotate(180deg);
+}
+
+[data-theme="light"] .nav-theme-btn:hover {
+  border-color: #0284C7;
+  color: #0284C7;
+  background: rgba(2, 132, 199, 0.08);
 }
 
 .nav-cta {
@@ -915,10 +928,13 @@ body::before {
 }
 
 @keyframes pulse-dot {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
     transform: scale(1);
   }
+
   50% {
     box-shadow: 0 0 0 6px rgba(52, 211, 153, 0);
     transform: scale(1.15);
@@ -1080,7 +1096,9 @@ body::before {
   overflow: hidden;
   cursor: pointer;
   border: 1px solid var(--glass-border);
-  background: var(--bg-raised);
+  background: var(--glass);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   display: grid;
   grid-template-columns: 1fr;
@@ -1155,9 +1173,6 @@ body::before {
   flex-direction: column;
   justify-content: flex-start;
   gap: 4px;
-  background: var(--glass);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
 }
 
 .port-category {
@@ -1814,7 +1829,7 @@ body::before {
   }
 
   .hero-wrap {
-    padding: 110px clamp(20px, 4vw, 36px) 60px;
+    padding: 110px clamp(20px, 4vw, 32px) 60px;
     min-height: 90vh;
   }
 
@@ -1872,45 +1887,124 @@ body::before {
 /* ── ≤ 640px — mobile ── */
 @media (max-width: 640px) {
   .gw-nav {
-    padding: 12px 18px;
+    padding: 14px 20px;
   }
 
   .nav-brand {
-    font-size: 20px;
+    font-size: 21px;
   }
 
   .hero-wrap {
-    padding: 88px 18px 44px;
+    padding: 96px 20px 56px;
     min-height: 85vh;
+    gap: 0;
+  }
+
+  /* ── Hero heading: bigger & breathier on mobile ── */
+  .hero-title {
+    font-size: clamp(40px, 11vw, 58px) !important;
+    line-height: 1.14 !important;
+    letter-spacing: -1.5px !important;
+    margin-bottom: 22px !important;
+  }
+
+  /* ── Hero subtext: more readable line-height ── */
+  .hero-sub {
+    font-size: 17px !important;
+    line-height: 1.85 !important;
+    margin-bottom: 36px !important;
+  }
+
+  .hero-badge {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    margin-bottom: 26px;
   }
 
   .hero-ctas {
-    gap: 10px;
+    gap: 12px;
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .hero-ctas .btn-accent,
+  .hero-ctas .btn-glass {
+    justify-content: center;
   }
 
   .sec {
-    padding: clamp(36px, 6vw, 52px) 18px;
+    padding: clamp(44px, 7vw, 60px) 20px;
+  }
+
+  .sec-label {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    margin-bottom: 20px;
   }
 
   .sec-title {
-    font-size: clamp(26px, 8vw, 38px) !important;
-    letter-spacing: -0.8px !important;
+    font-size: clamp(28px, 8vw, 40px) !important;
+    letter-spacing: -0.5px !important;
+    line-height: 1.15 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .sec-desc {
+    font-size: 16px !important;
+    line-height: 1.85 !important;
+  }
+
+  .sec-sub {
+    font-size: 16px !important;
+    line-height: 1.85 !important;
+  }
+
+  .sec-h2 {
+    font-size: clamp(34px, 9vw, 52px) !important;
+    margin-bottom: 18px;
   }
 
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .service-card-new {
+    padding: 24px 20px;
+    gap: 14px;
+  }
+
+  .scn-title {
+    font-size: 19px !important;
+  }
+
+  .scn-desc {
+    font-size: 15px !important;
+    line-height: 1.8 !important;
   }
 
   .port-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .port-card {
-    grid-template-rows: 180px auto;
+    grid-template-rows: 185px auto;
+  }
+
+  .port-name {
+    font-size: 18px !important;
+  }
+
+  .port-info {
+    padding: 18px 16px;
+    gap: 6px;
   }
 
   .process-grid {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .process-step {
@@ -1930,6 +2024,7 @@ body::before {
 
   .testimonials-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .pricing-grid {
@@ -1938,7 +2033,7 @@ body::before {
 
   .grid-footer {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 30px;
   }
 
   .foot-bar {
@@ -1952,35 +2047,35 @@ body::before {
   }
 
   .cta-band-wrap {
-    padding: 0 16px clamp(48px, 8vw, 72px);
+    padding: 0 20px clamp(50px, 8vw, 72px);
   }
 
   .cta-band {
-    padding: clamp(36px, 7vw, 56px) 20px;
+    padding: clamp(38px, 7vw, 58px) 22px;
   }
 
   .cta-band-title {
-    font-size: clamp(24px, 7vw, 36px);
-    letter-spacing: -0.8px;
+    font-size: clamp(26px, 7vw, 38px);
+    letter-spacing: -0.6px;
   }
 
   .cta-band-btn {
     width: 100%;
     justify-content: center;
-    font-size: 15px;
-    padding: 14px 24px;
+    font-size: 16px;
+    padding: 15px 24px;
   }
 
   .wa-float {
-    width: 50px;
-    height: 50px;
+    width: 52px;
+    height: 52px;
     bottom: 18px;
     right: 18px;
   }
 
   .wa-float svg {
-    width: 24px;
-    height: 24px;
+    width: 25px;
+    height: 25px;
   }
 
   .wa-float-label {
@@ -1988,40 +2083,79 @@ body::before {
   }
 
   .scroll-top {
-    bottom: 78px;
+    bottom: 80px;
     right: 18px;
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
   }
 
   .btn-accent,
   .btn-glass {
-    padding: 12px 20px;
-    font-size: 14px;
+    padding: 13px 22px;
+    font-size: 15px;
   }
 
   .btn-accent svg,
   .btn-glass svg {
-    width: 14px;
-    height: 14px;
+    width: 15px;
+    height: 15px;
+  }
+
+  /* Mobile overlay menu — bigger tap targets */
+  .mobile-menu a:not(.btn-accent) {
+    font-size: 20px;
+    padding: 10px 0;
   }
 }
 
 /* ── ≤ 420px — small phones ── */
 @media (max-width: 420px) {
   .nav-brand {
-    font-size: 18px;
+    font-size: 19px;
   }
 
   .hero-wrap {
-    padding: 88px 14px 44px;
+    padding: 92px 16px 52px;
+  }
+
+  .hero-title {
+    font-size: clamp(36px, 12vw, 52px) !important;
+    letter-spacing: -1px !important;
+    line-height: 1.15 !important;
+  }
+
+  .hero-sub {
+    font-size: 16px !important;
+    line-height: 1.8 !important;
   }
 
   .sec {
-    padding: 36px 14px;
+    padding: 40px 16px;
   }
 
   .sec-title {
-    font-size: clamp(24px, 9vw, 32px) !important;
+    font-size: clamp(26px, 9vw, 34px) !important;
+    line-height: 1.15 !important;
+  }
+
+  .sec-desc,
+  .sec-sub {
+    font-size: 15px !important;
+  }
+
+  .scn-title {
+    font-size: 18px !important;
+  }
+
+  .scn-desc {
+    font-size: 14px !important;
+  }
+
+  .mobile-menu a:not(.btn-accent) {
+    font-size: 19px;
+  }
+
+  .cta-band-wrap {
+    padding: 0 16px clamp(48px, 8vw, 64px);
   }
 }
