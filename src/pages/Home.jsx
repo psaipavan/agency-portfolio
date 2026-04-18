@@ -293,8 +293,10 @@ function Home() {
                         {steps.map(({ num, title, desc }, i) => (
                             <div key={num} className="fi-scale process-step" style={{ transitionDelay: `${i * 90}ms` }}>
                                 <div className="process-num">{num}</div>
-                                <h3 className="process-step-title">{title}</h3>
-                                <p className="process-step-desc">{desc}</p>
+                                <div>
+                                    <h3 className="process-step-title">{title}</h3>
+                                    <p className="process-step-desc">{desc}</p>
+                                </div>
                             </div>
                         ))}
                     </div>
