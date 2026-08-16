@@ -279,7 +279,7 @@ function Home() {
             </section>
 
             {/* ══ PROCESS ══ */}
-            <section id="process" style={{ background: 'var(--glass)', borderTop: '1px solid var(--glass-border)', borderBottom: '1px solid var(--glass-border)', backdropFilter: 'blur(12px)' }}>
+            <section id="process" className="process-section">
                 <div className="sec">
                     <div style={{ textAlign: 'center', marginBottom: 'clamp(40px, 6vw, 80px)' }}>
                         <div className="sec-label fi-scale" style={{ justifyContent: 'center' }}>Our Process</div>
@@ -379,26 +379,6 @@ function Home() {
                 </div>
             </section>
 
-            {/* ══ CTA BAND ══ */}
-            <div className="cta-band-wrap">
-                <div className="fi-scale cta-band">
-                    <div className="cta-band-glow" />
-                    <div style={{ position: 'relative', zIndex: 1 }}>
-                        <p className="cta-band-label">Ready to start?</p>
-                        <h2 className="cta-band-title">
-                            Let's build something<br />
-                            <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>extraordinary together</em>
-                        </h2>
-                        <p className="cta-band-desc">
-                            Book a free strategy call. We'll map out exactly what you need to grow — no strings attached.
-                        </p>
-                        <a href={getWA("Hi! I'd like to book a free strategy call.")} target="_blank" rel="noopener noreferrer" className="btn-accent cta-band-btn">
-                            Book a Free Call
-                            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
         </>
     )
 }

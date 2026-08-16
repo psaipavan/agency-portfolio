@@ -29,7 +29,7 @@ function Hero() {
                         animation: 'pulse-dot 2s ease-in-out infinite',
                         flexShrink: 0,
                     }} />
-                    Open for Projects — 2025
+                    Open for Projects — 2026
                 </span>
             </div>
 
